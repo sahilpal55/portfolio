@@ -697,7 +697,6 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
 (function(){
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -708,7 +707,6 @@ footer{
   var hero = document.getElementById('hero');
   var progress = document.getElementById('progress');
   var ghost = document.querySelector('.about-ghost');
-  var lenis = null;
 
   function readyAll(){
     var els = document.querySelectorAll('.rv');
@@ -813,35 +811,10 @@ footer{
     tlFill.style.transform = 'none';
   }
 
-  /* lenis smooth scroll, desktop only */
-  if (!REDUCED && DESKTOP && window.Lenis) {
-    var startLenis = function(){
-      lenis = new Lenis({lerp: 0.5, wheelMultiplier: 1.35});
-      if (window.gsap && window.ScrollTrigger) {
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.lagSmoothing(0);
-        gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
-      } else {
-        function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-      }
-    };
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function(){
-        startLenis();
-        if (window.gsap && window.ScrollTrigger) ScrollTrigger.refresh();
-      });
-    } else {
-      startLenis();
-    }
+  /* refresh scroll positions once fonts settle (layout heights shift on swap) */
+  if (window.gsap && window.ScrollTrigger && document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
   }
-  if (lenis) {
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        var t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); lenis.scrollTo(t); }
-      });
-    });
   }
 
   /* safety net: if anything threw during motion setup, show everything */
