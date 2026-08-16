@@ -39,6 +39,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+html.lenis-active{scroll-behavior:auto;}
 body{
   background:var(--bg);color:var(--ink);
   font-family:var(--font);font-size:17px;line-height:1.65;
@@ -169,9 +170,10 @@ h1 .serif{font-size:1.02em;}
   border:1px solid var(--line);border-radius:999px;
   padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);
   box-shadow:var(--shadow-1);white-space:nowrap;
+  display:inline-flex;align-items:center;gap:8px;
   animation:float 3.4s var(--ease) infinite alternate;
 }
-.chip b{color:var(--accent);font-weight:600;}
+.chip svg{width:17px;height:17px;flex-shrink:0;display:block;}
 @keyframes float{from{transform:translateY(-7px)}to{transform:translateY(7px)}}
 .chip-c1{top:16%;left:2%;}.chip-c2{top:12%;right:1%;}
 .chip-c3{top:52%;left:-4%;}.chip-c4{top:48%;right:-3%;}
@@ -427,12 +429,18 @@ footer{
   <section id="hero" aria-label="Introduction">
     <div class="hero-wash" aria-hidden="true"></div>
 
-    <div class="chip-wrap chip-c1" aria-hidden="true" data-depth="18"><span class="chip">Figma</span></div>
-    <div class="chip-wrap chip-c2" aria-hidden="true" data-depth="26"><span class="chip">Webflow</span></div>
-    <div class="chip-wrap chip-c3" aria-hidden="true" data-depth="14"><span class="chip">Framer</span></div>
-    <div class="chip-wrap chip-c4" aria-hidden="true" data-depth="22"><span class="chip">HTML / CSS</span></div>
-    <div class="chip-wrap chip-c5" aria-hidden="true" data-depth="30"><span class="chip"><b>AI</b> workflow</span></div>
-    <div class="chip-wrap chip-c6" aria-hidden="true" data-depth="16"><span class="chip">WCAG</span></div>
+    <div class="chip-wrap chip-c1" aria-hidden="true" data-depth="18"><span class="chip">
+      <svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/><path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/></svg> Figma</span></div>
+    <div class="chip-wrap chip-c2" aria-hidden="true" data-depth="26"><span class="chip">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#146EF5" d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg> Webflow</span></div>
+    <div class="chip-wrap chip-c3" aria-hidden="true" data-depth="14"><span class="chip">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#0055FF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg> Framer</span></div>
+    <div class="chip-wrap chip-c4" aria-hidden="true" data-depth="22"><span class="chip">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg> HTML / CSS</span></div>
+    <div class="chip-wrap chip-c5" aria-hidden="true" data-depth="30"><span class="chip">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#A9341F" d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg> AI workflow</span></div>
+    <div class="chip-wrap chip-c6" aria-hidden="true" data-depth="16"><span class="chip">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#A9341F" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 4l1.55 4.45L18 14l-4.45 1.55L12 20l-1.55-4.45L6 14l4.45-1.55L12 8z"/></svg> WCAG AA</span></div>
 
     <div class="hero-wrap">
       <p class="hero-status rv" data-d="0"><span class="dot" aria-hidden="true"></span> Freelance at MAV Consulting · open to full-time</p>
@@ -808,10 +816,26 @@ footer{
 
   /* lenis smooth scroll, desktop only */
   if (!REDUCED && DESKTOP && window.Lenis) {
-    lenis = new Lenis({lerp: 0.12, wheelMultiplier: 1});
-    if (window.gsap && window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
-    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
+    var startLenis = function(){
+      document.documentElement.classList.add('lenis-active');
+      lenis = new Lenis({lerp: 0.18, wheelMultiplier: 1});
+      if (window.gsap && window.ScrollTrigger) {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.lagSmoothing(0);
+        gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+      } else {
+        function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      }
+    };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function(){
+        startLenis();
+        if (window.gsap && window.ScrollTrigger) ScrollTrigger.refresh();
+      });
+    } else {
+      startLenis();
+    }
   }
   if (lenis) {
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
