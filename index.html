@@ -76,16 +76,18 @@ nav.scrolled{box-shadow:var(--shadow-2);}
   padding:14px 24px;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
 }
-.nav-name{font-weight:600;color:var(--ink);font-size:16px;}
+.nav-name{font-weight:600;color:var(--ink);font-size:16px;position:relative;}
 .nav-links{display:flex;gap:26px;align-items:center;}
 .nav-links a{color:var(--ink-2);font-size:15px;position:relative;}
-.nav-links a::after{
+.nav-links a::after,.nav-name::after{
   content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;
   background:var(--accent);transform:scaleX(0);transform-origin:left;
   transition:transform .3s var(--ease);
 }
 .nav-links a:hover{color:var(--ink);text-decoration:none;}
-.nav-links a:hover::after{transform:scaleX(1);}
+.nav-links a:hover::after,.nav-name:hover::after{transform:scaleX(1);}
+.nav-links a.active,.nav-name.active{color:var(--ink);}
+.nav-links a.active::after,.nav-name.active::after{transform:scaleX(1);}
 .btn-email{
   display:inline-block;background:var(--accent);color:#fff;
   font-size:14px;font-weight:500;padding:9px 18px;border-radius:var(--r-sm);
@@ -123,7 +125,7 @@ nav.scrolled{box-shadow:var(--shadow-2);}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
 h1{font-size:clamp(56px,9vw,108px);font-weight:700;margin-bottom:28px;letter-spacing:-.03em;}
 h1 .serif{font-size:1.02em;}
-.mask{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em;}
+.mask{display:inline-block;overflow:hidden;vertical-align:top;padding-top:.09em;margin-top:-.09em;padding-bottom:.12em;margin-bottom:-.12em;}
 .mask .ch{display:inline-block;transform:translateY(115%);transition:transform .7s var(--ease);}
 .in .mask .ch,.mask.in .ch{transform:none;}
 .positioning{
@@ -175,7 +177,7 @@ h1 .serif{font-size:1.02em;}
 .chip svg{width:17px;height:17px;flex-shrink:0;display:block;}
 @keyframes float{from{transform:translateY(-7px)}to{transform:translateY(7px)}}
 .chip-c1{top:16%;left:2%;}.chip-c2{top:12%;right:1%;}
-.chip-c3{top:52%;left:-4%;}.chip-c4{top:48%;right:-3%;}
+.chip-c3{top:52%;left:1%;}.chip-c4{top:48%;right:1%;}
 .chip-c5{bottom:18%;left:6%;}.chip-c6{bottom:14%;right:5%;}
 .chip-wrap .chip{animation-delay:calc(var(--i,0)*-0.5s);}
 .chip-c1 .chip{animation-delay:-.2s;}.chip-c2 .chip{animation-delay:-.8s;}
@@ -303,18 +305,35 @@ html.js .rv.in{opacity:1;transform:none;}
 .p-more:hover{border-color:var(--accent);box-shadow:var(--shadow-2);text-decoration:none;}
 
 /* ============ stack ============ */
-.stack-wrap{display:flex;flex-direction:column;}
-.stack-row{
-  display:grid;grid-template-columns:220px 1fr;gap:32px;
-  padding:22px 20px;border-top:1px solid var(--line);
-  align-items:baseline;border-radius:var(--r-sm);
-  transition:background .3s var(--ease);
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.stack-card{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  min-height:130px;padding:24px;
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease),background .3s var(--ease);
 }
-.stack-row:last-of-type{border-bottom:1px solid var(--line);}
-.stack-row:hover{background:var(--accent-soft);}
-.stack-row:hover .stack-name{color:var(--accent-ink);}
-.stack-name{font-weight:600;font-size:16px;transition:color .3s var(--ease);}
-.stack-desc{font-size:15px;color:var(--ink-2);}
+.stack-card:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-3px);box-shadow:var(--shadow-1);}
+.stack-card:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+.stack-logo{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--ink);}
+.stack-logo svg{width:100%;height:100%;}
+.stack-name{font-size:15px;font-weight:600;color:var(--ink);}
+.stack-pill{
+  position:fixed;left:0;top:0;z-index:200;pointer-events:none;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-2);
+  padding:8px 16px;opacity:0;visibility:hidden;
+  transition:opacity .15s var(--ease),visibility .15s;
+}
+.stack-pill.on{opacity:1;visibility:visible;}
+.stack-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.stack-pill-name{font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap;}
+.stack-pill-desc{font-size:13px;color:var(--ink-2);white-space:nowrap;}
+@media (hover:none){
+  .stack-pill{display:none;}
+  .stack-name{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal;}
+}
 
 /* ============ contact ============ */
 #contact{padding:140px 0 120px;}
@@ -393,7 +412,8 @@ footer{
   nav.open .nav-toggle span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
   .bento{grid-template-columns:1fr;grid-auto-rows:auto;}
   .p-1,.p-2,.p-3,.p-4,.p-5,.p-more{grid-column:span 1;}
-  .stack-row{grid-template-columns:1fr;gap:6px;padding:18px 12px;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .stack-card{min-height:112px;padding:18px;}
   .contact-row{flex-direction:column;align-items:flex-start;gap:6px;}
   .about-ghost{display:none;}
   .tl-card-inner{padding:20px;}
@@ -654,14 +674,33 @@ footer{
   <section id="stack" aria-label="Stack">
     <p class="kicker rv" data-d="0">Stack</p>
     <h2 class="rv" data-d="1">Tools I <em class="serif">use</em></h2>
-    <div class="stack-wrap">
-      <div class="stack-row rv" data-d="2"><span class="stack-name">Figma</span><span class="stack-desc">Design, prototyping, design systems, and Figma Make for early-stage AI ideation.</span></div>
-      <div class="stack-row rv" data-d="3"><span class="stack-name">Webflow</span><span class="stack-desc">Production builds with modular systems. 40+ pages shipped at WeCP.</span></div>
-      <div class="stack-row rv" data-d="4"><span class="stack-name">Framer</span><span class="stack-desc">Rapid marketing sites and interactive prototypes.</span></div>
-      <div class="stack-row rv" data-d="5"><span class="stack-name">HTML / CSS / JS</span><span class="stack-desc">Hand-coded interfaces, GSAP animation, WCAG AA accessibility.</span></div>
-      <div class="stack-row rv" data-d="6"><span class="stack-name">Research &amp; process</span><span class="stack-desc">Jobs-to-be-Done, heuristic evaluation, usability testing, journey mapping.</span></div>
-      <div class="stack-row rv" data-d="7"><span class="stack-name">AI in the loop</span><span class="stack-desc">Figma Make, Google Stitch, Framer AI, Claude for research and workflow design.</span></div>
+    <div class="stack-grid">
+      <div class="stack-card rv" data-d="2" tabindex="0" data-stack="Figma" data-tag="Design, prototyping, systems">
+        <span class="stack-logo"><svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/><path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/></svg></span>
+        <span class="stack-name sr-only">Figma</span>
+      </div>
+      <div class="stack-card rv" data-d="3" tabindex="0" data-stack="Webflow" data-tag="Production builds, 40+ pages shipped">
+        <span class="stack-logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#146EF5" d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg></span>
+        <span class="stack-name sr-only">Webflow</span>
+      </div>
+      <div class="stack-card rv" data-d="4" tabindex="0" data-stack="Framer" data-tag="Rapid sites and interactive prototypes">
+        <span class="stack-logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#0055FF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg></span>
+        <span class="stack-name sr-only">Framer</span>
+      </div>
+      <div class="stack-card rv" data-d="5" tabindex="0" data-stack="HTML / CSS / JS" data-tag="Hand-coded UI, GSAP, WCAG AA">
+        <span class="stack-logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span>
+        <span class="stack-name sr-only">HTML, CSS, JavaScript</span>
+      </div>
+      <div class="stack-card rv" data-d="6" tabindex="0" data-stack="Research &amp; process" data-tag="JTBD, heuristics, usability tests">
+        <span class="stack-logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span class="stack-name sr-only">Research and process</span>
+      </div>
+      <div class="stack-card rv" data-d="7" tabindex="0" data-stack="AI in the loop" data-tag="Figma Make, Stitch, Framer AI, Claude">
+        <span class="stack-logo"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#A9341F" d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+        <span class="stack-name sr-only">AI in the loop</span>
+      </div>
     </div>
+    <div class="stack-pill" id="stack-pill" aria-hidden="true"><span class="dot"></span><span class="stack-pill-name"></span><span class="stack-pill-desc"></span></div>
   </section>
 
   <!-- CONTACT -->
@@ -717,7 +756,25 @@ footer{
     if (tl && !(window.gsap && window.ScrollTrigger)) tl.style.transform = 'none';
   }
 
-  /* scroll state: nav shadow, progress bar, hero cue, ghost drift */
+  /* scroll state: nav shadow, progress bar, hero cue, ghost drift, scrollspy */
+  var SPY = ['hero','about','experience','projects','stack','contact'];
+  function spyUpdate(y){
+    var cur = SPY[0];
+    for (var i = 0; i < SPY.length; i++){
+      var s = document.getElementById(SPY[i]);
+      if (s && s.offsetTop <= y + 96) cur = SPY[i];
+    }
+    if (y + window.innerHeight >= document.documentElement.scrollHeight - 4) cur = 'contact';
+    SPY.forEach(function(id){
+      var l = id === 'hero'
+        ? document.querySelector('.nav-name')
+        : document.querySelector('.nav-links a[href="#' + id + '"]');
+      if (!l) return;
+      var on = id === cur;
+      l.classList.toggle('active', on);
+      if (on) l.setAttribute('aria-current','true'); else l.removeAttribute('aria-current');
+    });
+  }
   var ticking = false;
   function onScroll(){
     if (ticking) return;
@@ -729,10 +786,12 @@ footer{
       var max = document.documentElement.scrollHeight - window.innerHeight;
       if (progress && max > 0) progress.style.transform = 'scaleX(' + Math.min(y / max, 1) + ')';
       if (ghost && !REDUCED) ghost.style.transform = 'translateY(' + (y * 0.08) + 'px)';
+      spyUpdate(y);
       ticking = false;
     });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
   onScroll();
 
   /* hamburger */
@@ -848,6 +907,33 @@ footer{
   window.addEventListener('error', function(){
     try { readyAll(); } catch (e) {}
   });
+
+  /* stack pill: cursor-following readout (Figma-collab style), keyboard-anchored */
+  var pill = document.getElementById('stack-pill');
+  var sCards = document.querySelectorAll('.stack-card');
+  if (pill && sCards.length) {
+    function showPill(c, x, y){
+      pill.querySelector('.stack-pill-name').textContent = c.getAttribute('data-stack');
+      pill.querySelector('.stack-pill-desc').textContent = c.getAttribute('data-tag');
+      pill.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      pill.classList.add('on');
+    }
+    function hidePill(){ pill.classList.remove('on'); }
+    sCards.forEach(function(c){
+      c.addEventListener('mouseenter', function(){ showPill(c, 0, 0); });
+      c.addEventListener('mouseleave', hidePill);
+      c.addEventListener('focus', function(){
+        var r = c.getBoundingClientRect();
+        showPill(c, r.right + 12, r.top);
+      });
+      c.addEventListener('blur', hidePill);
+    });
+    document.addEventListener('mousemove', function(e){
+      if (pill.classList.contains('on')) {
+        pill.style.transform = 'translate(' + (e.clientX + 18) + 'px,' + (e.clientY + 18) + 'px)';
+      }
+    });
+  }
 
   /* mouse parallax on hero chips, desktop pointer devices only */
   if (!REDUCED && DESKTOP && !TOUCH && window.innerWidth > 1100) {
