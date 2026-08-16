@@ -196,6 +196,15 @@ html.js .rv.in{opacity:1;transform:none;}
   color:var(--bg-tint);line-height:1;pointer-events:none;
   transform:translateY(0);
 }
+.hl{
+  background:var(--accent-soft);
+  background-image:linear-gradient(var(--accent-soft),var(--accent-soft));
+  background-repeat:no-repeat;
+  background-size:100% 62%;
+  background-position:0 78%;
+  border-radius:2px;
+  padding:0 .05em;
+}
 .about-grid{
   display:grid;grid-template-columns:1.3fr 1fr;gap:56px;
   position:relative;z-index:1;
@@ -206,13 +215,29 @@ html.js .rv.in{opacity:1;transform:none;}
   border-radius:var(--r-lg);padding:32px;height:fit-content;
   box-shadow:var(--shadow-1);
 }
-.facts-card div{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-2);}
+html.js .facts-card{transition:opacity .6s var(--ease),transform .6s var(--ease),box-shadow .4s var(--ease);}
+html.js .facts-card.in:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow-hover);}
+.facts-card div{
+  padding:14px 0 14px 18px;border-bottom:1px solid var(--line);
+  font-size:15px;color:var(--ink-2);position:relative;
+  transition:color .3s var(--ease);
+}
 .facts-card div:first-child{padding-top:0;}
 .facts-card div:last-child{border-bottom:none;padding-bottom:0;}
+.facts-card div::before{
+  content:'';position:absolute;left:0;top:50%;
+  width:3px;height:50%;border-radius:2px;background:var(--accent);
+  transform:translateY(-50%) scaleY(0);
+  transition:transform .3s var(--ease);
+}
+.facts-card div:hover::before{transform:translateY(-50%) scaleY(1);}
+.facts-card div:hover{color:var(--ink);}
 .facts-card strong{
   display:block;font-size:12px;font-weight:600;text-transform:uppercase;
   letter-spacing:.12em;color:var(--ink-3);margin-bottom:4px;
+  transition:color .3s var(--ease);
 }
+.facts-card div:hover strong{color:var(--accent);}
 
 /* ============ experience timeline ============ */
 .tl{position:relative;padding:8px 0;}
@@ -488,9 +513,9 @@ footer{
       <div class="about-ghost" aria-hidden="true">04+</div>
       <div class="about-grid">
         <div>
-          <p class="rv" data-d="2">I started in marketing: social media at Pencilton and Hypercube, digital marketing at Webware.io. While doing that, I taught myself design and earned a UX/UI certification from the Interaction Design Foundation.</p>
-          <p class="rv" data-d="3">I built my own portfolio to prove the skill. It got me my first design contract with MemoNeet, then Appiness, then WeCP, and now MAV Consulting.</p>
-          <p class="rv" data-d="4">Today I work end-to-end: discovery, high-fidelity UI, design systems, Webflow or Framer builds. AI tools like Figma Make and Google Stitch are part of the process, not a substitute for it.</p>
+          <p class="about-p rv" data-d="2">I started in marketing: social media at Pencilton and Hypercube, digital marketing at Webware.io. While doing that, I <span class="hl">taught myself design</span> and earned a <span class="hl">UX/UI certification</span> from the Interaction Design Foundation.</p>
+          <p class="about-p rv" data-d="3">I built my own portfolio to <span class="hl">prove the skill</span>. It got me my <span class="hl">first design contract</span> with MemoNeet, then Appiness, then WeCP, and now MAV Consulting.</p>
+          <p class="about-p rv" data-d="4">Today I work <span class="hl">end-to-end</span>: discovery, high-fidelity UI, design systems, Webflow or Framer builds. AI tools like Figma Make and Google Stitch are <span class="hl">part of the process, not a substitute for it</span>.</p>
         </div>
         <div class="facts-card rv" data-d="3">
           <div><strong>Education</strong>BCA, Rosary College of Commerce &amp; Arts, Goa</div>
@@ -870,6 +895,19 @@ footer{
     });
   } else if (tlFill) {
     tlFill.style.transform = 'none';
+  }
+
+  /* about highlight sweep (GSAP, reduced/no-JS = static full highlight) */
+  if (!REDUCED && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    [].slice.call(document.querySelectorAll('.about-p')).forEach(function(host){
+      var hl = host.querySelectorAll('.hl');
+      if (!hl.length) return;
+      gsap.fromTo(hl, {backgroundSize: '0% 62%'}, {
+        backgroundSize: '100% 62%', ease: 'none', stagger: 0.18,
+        scrollTrigger: {trigger: host, start: 'top 88%', end: 'top 30%', scrub: 0.5}
+      });
+    });
   }
 
   /* lenis smooth scroll, desktop only */
