@@ -1,3300 +1,451 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Sahil Pal · Field Catalog · Product Design Systems</title>
-<meta name="description" content="A field catalog of Sahil Pal's product design work. Senior designer in Bengaluru, India, shipping AI tools, SaaS, and healthcare.">
-<meta name="theme-color" content="#F2E5C7">
-
-<!-- Open Graph -->
-<meta property="og:type"        content="website" />
-<meta property="og:site_name"   content="Sahil Pal · Field Catalog" />
-<meta property="og:title"       content="Sahil Pal · Field Catalog · Product Design Systems" />
-<meta property="og:description" content="A field catalog of Sahil Pal's product design work, senior designer in Bengaluru shipping AI, SaaS, healthcare and agri-tech." />
-<meta property="og:url"         content="https://sahilpal55.github.io/portfolio/" />
-<meta property="og:image"       content="https://sahilpal55.github.io/portfolio/portfolio-og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt"   content="Sahil Pal · Field Catalog · Product Design Systems" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card"        content="summary_large_image" />
-<meta name="twitter:title"       content="Sahil Pal · Field Catalog · Product Design Systems" />
-<meta name="twitter:description" content="A field catalog of Sahil Pal's product design work, senior designer in Bengaluru shipping AI, SaaS, healthcare and agri-tech." />
-<meta name="twitter:image"       content="https://sahilpal55.github.io/portfolio/portfolio-og.png" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahil Pal · Product Designer</title>
+<meta name="description" content="Product designer for AI and B2B SaaS. 4 years from discovery to shipped interface. Currently designing an AI-powered real estate CRM at MAV Consulting.">
+<meta property="og:title" content="Sahil Pal · Product Designer">
+<meta property="og:description" content="Product designer for AI and B2B SaaS. 4 years from discovery to shipped interface. Bengaluru, open to full-time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sahilpal55.github.io/portfolio/">
+<meta property="og:image" content="https://sahilpal55.github.io/portfolio/portfolio-og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400;1,7..72,600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;1,7..72,400;1,7..72,600&display=swap">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   TOKENS · Field Catalog
-   ============================================================ */
-:root {
-  --newsprint:    #F2E5C7;
-  --newsprint-2:  #E5D1A7;
-  --newsprint-3:  #CCB785;
-  --ink:          #102638;
-  --ink-2:        #31475A;
-  --ink-3:        #596674;       /* AA-safe small-text on field paper */
-  --stamp:        #A9341F;       /* rust stamp, AA-safe on field paper */
-  --stamp-deep:   #7F2414;
-  --stamp-bright: #D64B24;       /* decorative only: gauges, stamps, marks */
-  --plotter:      #236A4A;       /* plotter green, diagram lines */
-  --blueprint:    #2457A6;       /* secondary data accent */
-  --gold:         #B6812E;       /* brass markers only */
-  --gold-deep:    #6C4B18;
+:root{
+  --bg:#FFFFFF;
+  --ink:#1A1A1A;
+  --ink-2:#4D4D4D;
+  --ink-3:#6B6B6B;
+  --line:#E5E5E5;
+  --accent:#A9341F;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:#fff;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
 
-  --f-display: "Archivo", "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
-  --f-body:    "Atkinson Hyperlegible", ui-sans-serif, system-ui, sans-serif;
-  --f-italic:  "Literata", Georgia, serif;
-  --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+/* nav */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;
+  padding:16px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.nav-name{font-weight:600;color:var(--ink);}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--ink-2);font-size:15px;}
 
-  --rule: 1px solid var(--ink);
-  --rule-soft: 1px solid color-mix(in srgb, var(--ink-3) 78%, transparent);
-  --rule-stamp: 1.5px solid var(--stamp-bright);
+/* layout */
+main{max-width:1080px;margin:0 auto;padding:0 24px;}
+section{padding:88px 0;border-bottom:1px solid var(--line);}
+section:last-child{border-bottom:none;}
+.kicker{
+  font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.1;}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:40px;}
+p{color:var(--ink-2);}
 
-  --gutter: clamp(20px, 4vw, 56px);
-  --maxw: 1480px;
-  --strip-h: 56px;
+/* hero */
+#hero{padding:120px 0 96px;}
+.hero-status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;
+  padding:6px 14px;margin-bottom:32px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+h1{font-size:clamp(44px,7vw,76px);margin-bottom:24px;}
+.positioning{
+  font-size:clamp(20px,2.6vw,26px);font-weight:500;color:var(--ink);
+  max-width:720px;margin-bottom:16px;
+}
+.context{font-size:18px;max-width:640px;margin-bottom:40px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:12px 24px;border-radius:8px;
+  font-size:15px;font-weight:500;
+}
+.btn-primary{background:var(--ink);color:#fff;}
+.btn-primary:hover{background:var(--accent);text-decoration:none;}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--ink);text-decoration:none;}
+.hero-meta{
+  display:flex;gap:24px;flex-wrap:wrap;
+  font-size:14px;color:var(--ink-3);margin-top:48px;
+}
+.hero-meta span{display:inline-flex;align-items:center;gap:6px;}
 
-  --ease: cubic-bezier(.22,.61,.36,1);
-  --ease-out: cubic-bezier(.16,1,.3,1);
+/* work */
+.work-list{display:flex;flex-direction:column;gap:0;}
+.work-item{
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:32px;padding:28px 0;border-top:1px solid var(--line);
+  align-items:start;
 }
+.work-item:last-of-type{border-bottom:1px solid var(--line);}
+.work-meta{display:flex;flex-direction:column;gap:8px;}
+.work-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{
+  font-size:12px;font-weight:500;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;
+}
+.work-role{font-size:13px;color:var(--ink-3);}
+.work-body h3{font-size:22px;margin-bottom:8px;}
+.work-body p{font-size:16px;margin-bottom:10px;}
+.work-link{font-size:15px;font-weight:500;}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--newsprint); color: var(--ink); }
-body {
-  font-family: var(--f-body);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+/* experience */
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-item{
+  display:grid;grid-template-columns:220px 1fr;
+  gap:32px;padding:24px 0;border-top:1px solid var(--line);
 }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
-img, svg { display: block; max-width: 100%; }
+.exp-item:last-of-type{border-bottom:1px solid var(--line);}
+.exp-dates{font-size:14px;color:var(--ink-3);line-height:1.4;}
+.exp-role{font-size:14px;color:var(--accent);font-weight:500;margin-bottom:4px;}
+.exp-item h3{font-size:19px;margin-bottom:10px;}
+.exp-item ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.exp-item li{
+  font-size:15.5px;color:var(--ink-2);padding-left:18px;position:relative;
+}
+.exp-item li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;background:var(--accent);border-radius:1px;}
 
-::selection { background: var(--stamp); color: var(--newsprint); }
-:focus { outline: none; }
-:focus-visible {
-  outline: 3px solid var(--stamp);
-  outline-offset: 2px;
-}
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.about-grid p{margin-bottom:16px;font-size:17px;}
+.about-meta{display:flex;flex-direction:column;gap:12px;font-size:15px;color:var(--ink-2);}
+.about-meta strong{color:var(--ink);font-weight:600;display:block;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);}
 
-/* ============================================================
-   PAPER TEXTURE & HALFTONE — the surface character
-   ============================================================ */
-body::before {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: .55;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='3'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.13  0 0 0 0 0.17  0 0 0 0.16 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+/* stack */
+.stack-wrap{display:flex;flex-direction:column;gap:0;}
+.stack-row{
+  display:grid;grid-template-columns:220px 1fr;
+  gap:32px;padding:20px 0;border-top:1px solid var(--line);
+  align-items:baseline;
 }
-body::after {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: .04;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='6'><circle cx='3' cy='3' r='1' fill='%2315212B'/></svg>");
-  mix-blend-mode: multiply;
-}
+.stack-row:last-of-type{border-bottom:1px solid var(--line);}
+.stack-name{font-weight:600;font-size:16px;}
+.stack-desc{font-size:15px;color:var(--ink-2);}
 
-/* Halftone plate — applied as a class to any "image" surface */
-.plate-halftone {
-  position: relative;
+/* contact */
+#contact{padding:96px 0 120px;}
+.contact-line{font-size:clamp(24px,3.5vw,36px);font-weight:600;max-width:640px;margin-bottom:40px;}
+.contact-rows{display:flex;flex-direction:column;gap:16px;}
+.contact-row{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);padding:16px 0;
 }
-.plate-halftone::after {
-  content: "";
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><circle cx='2' cy='2' r='.7' fill='%2315212B'/></svg>");
-  mix-blend-mode: multiply;
-  opacity: .14;
-  pointer-events: none;
-}
-
-/* ============================================================
-   CATALOG HEADER STRIP — replaces the v2 OS bar
-   ============================================================ */
-.strip {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  height: var(--strip-h);
-  padding: 0 var(--gutter);
-  background: var(--newsprint);
-  border-bottom: var(--rule);
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.strip::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: -3px;
-  border-bottom: var(--rule);
-  pointer-events: none;
-}
-.strip-l, .strip-r { display: flex; align-items: center; gap: 18px; min-width: 0; }
-.strip-r { justify-content: flex-end; }
-.strip-c { white-space: nowrap; }
-
-.strip-code {
-  display: inline-flex; align-items: baseline; gap: 8px;
-  font-variant-numeric: tabular-nums;
-}
-.strip-code .num { color: var(--stamp); }
-.strip-plate {
-  color: var(--ink-2);
-  transition: opacity .25s var(--ease);
-  border-left: var(--rule);
-  padding-left: 12px;
-}
-.strip-pub {
-  font-family: var(--f-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-}
-.strip-pub em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-  font-variation-settings: "opsz" 14;
-}
-.strip-coord {
-  font-variant-numeric: tabular-nums;
-  color: var(--ink-2);
-}
-.strip-coord .live { color: var(--stamp); }
-.strip-mark {
-  width: 22px; height: 22px;
-  display: grid; place-items: center;
-  border: 1px solid var(--gold);
-  color: var(--gold-deep);
-  font-family: var(--f-italic);
-  font-size: 13px;
-  font-style: italic;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background .2s var(--ease), color .2s var(--ease);
-}
-.strip-mark:hover { background: var(--gold); color: var(--newsprint); }
-
-/* ============================================================
-   LAYOUT FOUNDATION — 16-col grid, plates, rails
-   ============================================================ */
-main { position: relative; z-index: 2; padding-top: var(--strip-h); }
-
-.plate {
-  position: relative;
-  padding: clamp(60px, 8vw, 110px) var(--gutter) 0;
-  border-bottom: var(--rule);
-}
-.plate-body {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  column-gap: clamp(12px, 1.8vw, 24px);
-  row-gap: clamp(32px, 4vw, 64px);
+.contact-label{font-size:14px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;}
+.contact-val{font-size:17px;font-weight:500;color:var(--ink);}
+.contact-val:hover{text-decoration:none;}
+footer{
+  max-width:1080px;margin:0 auto;padding:24px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:13px;color:var(--ink-3);
 }
 
-/* Header band — sits at top of every plate */
-.plate-head {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 3fr 6fr 7fr;
-  gap: clamp(16px, 2vw, 32px);
-  align-items: end;
-  padding-bottom: clamp(28px, 3.5vw, 44px);
-  border-bottom: var(--rule);
-  margin-bottom: clamp(32px, 4vw, 56px);
-}
-.plate-num {
-  display: flex; flex-direction: column; gap: 4px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  font-variant-numeric: tabular-nums;
-}
-.plate-num strong {
-  display: block;
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 76px);
-  letter-spacing: -0.025em;
-  line-height: .9;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 96, "wdth" 90;
-}
-.plate-kicker {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.plate-kicker .em { color: var(--stamp); }
-.plate-title-sml {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(18px, 1.6vw, 22px);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  font-variation-settings: "opsz" 24;
-}
-.plate-spec {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  font-variant-numeric: tabular-nums;
-}
-.plate-spec dt { color: var(--ink-3); font-weight: 400; }
-.plate-spec dd { color: var(--ink); font-weight: 500; margin-top: 2px; }
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:none;}
 
-/* Footnote rail — bottom of every plate */
-.plate-footrail {
-  grid-column: 1 / -1;
-  margin-top: clamp(48px, 6vw, 80px);
-  padding: 18px 0 22px;
-  border-top: var(--rule);
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 24px;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  line-height: 1.5;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.plate-footrail .footrail-label {
-  font-weight: 500;
-  letter-spacing: .14em;
-  color: var(--ink-3);
-}
-.plate-footrail ol {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 8px 24px;
-  counter-reset: fn;
-}
-.plate-footrail li {
-  counter-increment: fn;
-  padding-left: 20px;
-  position: relative;
-}
-.plate-footrail li::before {
-  content: counter(fn, decimal-leading-zero);
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--stamp);
-  font-weight: 500;
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
 }
 
-.system-strip {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 1px) 0 0 / 24px 100%,
-    var(--newsprint-2);
-}
-.system-chip {
-  --chip: var(--ink);
-  min-height: 86px;
-  padding: 14px;
-  border-right: var(--rule-soft);
-  display: grid;
-  align-content: space-between;
-  gap: 14px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.system-chip:last-child { border-right: 0; }
-.system-chip::before {
-  content: "";
-  width: 100%;
-  height: 18px;
-  background: var(--chip);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 25%, transparent);
-}
-.system-chip strong {
-  font-family: var(--f-display);
-  font-size: 22px;
-  line-height: .9;
-  letter-spacing: -.03em;
-  text-transform: none;
-}
-.system-chip em {
-  color: var(--ink-3);
-  font-style: normal;
-  letter-spacing: .08em;
-}
-
-/* Marginalia (numbered parts) — ①②③ enclosed numbers */
-.mark {
-  display: inline-grid;
-  place-items: center;
-  width: 20px; height: 20px;
-  border: 1px solid var(--ink);
-  background: var(--newsprint);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-  vertical-align: middle;
-  transform: translateY(-1px);
-}
-.mark.live { background: var(--stamp-bright); color: var(--newsprint); border-color: var(--stamp-bright); }
-.mark.gold { background: var(--gold); border-color: var(--gold-deep); color: var(--ink); }
-
-/* ============================================================
-   PLATE 01 · COLD OPEN
-   ============================================================ */
-#pl-01 { min-height: 100vh; padding-bottom: clamp(40px, 6vw, 80px); }
-
-.p01-body {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  column-gap: clamp(12px, 1.8vw, 24px);
-  row-gap: clamp(40px, 5vw, 72px);
-}
-
-.p01-title {
-  grid-column: 1 / 11;
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(72px, 11.5vw, 178px);
-  line-height: .82;
-  letter-spacing: -0.045em;
-  font-variation-settings: "opsz" 96, "wdth" 95;
-  color: var(--ink);
-  text-transform: lowercase;
-}
-.p01-title .em {
-  color: var(--stamp);
-  font-style: normal;
-  position: relative;
-  display: inline-block;
-}
-.p01-title .em::after {
-  content: "·";
-  position: absolute;
-  right: -0.45em;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.5em;
-  color: var(--ink);
-}
-
-.p01-gauges {
-  grid-column: 11 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(12px, 1.5vw, 22px);
-  align-self: end;
-}
-.gauge {
-  display: flex; flex-direction: column;
-  border: var(--rule);
-  background: var(--newsprint);
-  padding: 14px 12px 16px;
-}
-.gauge-head {
-  display: flex; justify-content: space-between; align-items: baseline;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  padding-bottom: 8px;
-  border-bottom: var(--rule-soft);
-  margin-bottom: 12px;
-}
-.gauge-head .id { color: var(--stamp); }
-.gauge-svg {
-  width: 100%;
-  aspect-ratio: 1.4 / 1;
-  margin-bottom: 10px;
-}
-.gauge-dial { stroke: var(--ink); stroke-width: 1; fill: none; }
-.gauge-tick { stroke: var(--ink-2); stroke-width: 0.75; fill: none; }
-.gauge-tick-major { stroke: var(--ink); stroke-width: 1; }
-.gauge-arc {
-  stroke: var(--stamp-bright);
-  stroke-width: 2.5;
-  fill: none;
-  stroke-linecap: butt;
-}
-.gauge-needle {
-  stroke: var(--stamp-bright);
-  stroke-width: 2.5;
-  fill: none;
-  stroke-linecap: round;
-  transform-origin: 60px 50px;
-  transform: rotate(-90deg);
-  transition: transform 1.4s cubic-bezier(.34,1,.4,1);
-}
-.gauge-needle.live { /* set via JS data-angle */ }
-.gauge-pin {
-  fill: var(--ink);
-  stroke: var(--newsprint);
-  stroke-width: 0.75;
-}
-.gauge-pin-stamp { fill: var(--stamp-bright); }
-
-.gauge-readout {
-  display: flex; align-items: baseline; gap: 4px;
-  font-family: var(--f-display);
-  font-variant-numeric: tabular-nums;
-}
-.gauge-readout .sym {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--stamp);
-}
-.gauge-readout .val {
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 48, "wdth" 90;
-  color: var(--ink);
-  line-height: 1;
-}
-.gauge-readout .pct {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink-2);
-}
-.gauge-cap {
-  margin-top: 6px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  line-height: 1.5;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.gauge-cap .em { color: var(--stamp); }
-
-.p01-marquee {
-  grid-column: 1 / -1;
-  margin-top: clamp(40px, 5vw, 80px);
-  border-top: var(--rule-stamp);
-  border-bottom: var(--rule);
-  padding: 14px 0;
-  overflow: hidden;
-  background: var(--newsprint-2);
-}
-.p01-marquee-track {
-  display: inline-flex;
-  gap: 56px;
-  white-space: nowrap;
-  font-family: var(--f-mono);
-  font-size: 11.5px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink);
-  animation: marquee 48s linear infinite;
-}
-.p01-marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
-.p01-marquee-track .sep {
-  color: var(--stamp-bright);
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: 16px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) { .p01-marquee-track { animation: none; } }
-
-.p01-edge {
-  position: absolute;
-  bottom: 24px; left: var(--gutter);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  display: flex; align-items: center; gap: 12px;
-}
-.p01-edge::before { content: "↓"; color: var(--stamp); }
-
-/* ============================================================
-   PLATE 02 · ORIGIN — Provenance
-   ============================================================ */
-.p02-grid {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  column-gap: clamp(12px, 1.8vw, 24px);
-  row-gap: clamp(40px, 4vw, 60px);
-  align-items: start;
-}
-.p02-title {
-  grid-column: 1 / 11;
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(40px, 6vw, 84px);
-  line-height: .94;
-  letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 96, "wdth" 95;
-  text-transform: lowercase;
-}
-.p02-title .em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 72;
-}
-
-.p02-prose {
-  grid-column: 1 / 8;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--ink);
-}
-.p02-prose p + p { margin-top: 1em; }
-.p02-prose .mark-bg {
-  background: linear-gradient(transparent 56%, color-mix(in srgb, var(--stamp) 40%, transparent) 56%, color-mix(in srgb, var(--stamp) 40%, transparent) 92%, transparent 92%);
-  padding: 0 2px;
-}
-.p02-prose .ink-2 { color: var(--ink-2); }
-
-.p02-stamps {
-  grid-column: 9 / -1;
-  display: grid;
-  gap: 18px;
-}
-.stamp-row {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 20px;
-  align-items: start;
-  padding: 16px 0;
-  border-top: var(--rule);
-  position: relative;
-}
-.stamp-row:first-child { border-top: 0; padding-top: 0; }
-.stamp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  padding: 0 14px;
-  border: var(--rule-stamp);
-  color: var(--stamp);
-  font-family: var(--f-mono);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  transform: rotate(-2.5deg);
-  align-self: start;
-  flex-direction: column;
-  line-height: 1.1;
-  background:
-    repeating-linear-gradient(135deg,
-      transparent 0px, transparent 5px,
-      color-mix(in srgb, var(--stamp) 7%, transparent) 5px,
-      color-mix(in srgb, var(--stamp) 7%, transparent) 7px);
-}
-.stamp .yr {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: -0.02em;
-  margin-bottom: 1px;
-  font-variation-settings: "opsz" 24;
-}
-.stamp-row:nth-child(2n) .stamp { transform: rotate(1.5deg); }
-.stamp-row:nth-child(3n) .stamp { transform: rotate(-1deg); }
-.stamp-desc {
-  font-size: 15px;
-  line-height: 1.5;
-  padding-top: 4px;
-}
-.stamp-desc .ann {
-  display: block;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 4px;
-}
-.stamp-desc strong {
-  font-family: var(--f-display);
-  font-weight: 700;
-  letter-spacing: -0.005em;
-}
-.stamp-desc em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-  font-variation-settings: "opsz" 18;
-}
-
-.p02-pull {
-  grid-column: 1 / 8;
-  margin-top: clamp(40px, 5vw, 72px);
-  padding-top: 28px;
-  border-top: var(--rule);
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-.p02-pull-num {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  color: var(--stamp);
-  padding-top: 14px;
-}
-.p02-pull blockquote {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(22px, 2.6vw, 34px);
-  line-height: 1.25;
-  color: var(--ink);
-  font-variation-settings: "opsz" 60;
-  letter-spacing: -0.005em;
-}
-.p02-pull cite {
-  display: block;
-  margin-top: 14px;
-  font-family: var(--f-mono);
-  font-style: normal;
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.p02-pull cite::before { content: "— "; color: var(--stamp); }
-
-.p02-meta {
-  grid-column: 1 / -1;
-  margin-top: clamp(40px, 5vw, 60px);
-  padding-top: 20px;
-  border-top: var(--rule);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.p02-meta dt { color: var(--ink-3); margin-bottom: 4px; }
-.p02-meta dd {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.01em;
-  text-transform: none;
-  color: var(--ink);
-}
-
-/* ============================================================
-   PLATE 05 · SHERLOCK — Wiring diagram
-   ============================================================ */
-.p03-title-block {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  gap: clamp(12px, 1.8vw, 24px);
-  margin-bottom: clamp(40px, 5vw, 64px);
-}
-.p03-title {
-  grid-column: 1 / 12;
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(64px, 12vw, 180px);
-  line-height: .82;
-  letter-spacing: -0.04em;
-  font-variation-settings: "opsz" 96, "wdth" 90;
-  text-transform: lowercase;
-  color: var(--ink);
-}
-.p03-title .em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 96;
-}
-.p03-lede {
-  grid-column: 1 / 11;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--ink);
-  margin-top: 16px;
-  max-width: 60ch;
-}
-.p03-lede em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-  font-variation-settings: "opsz" 20;
-}
-
-.p03-stack { grid-column: 1 / -1; }
-.p03-scrolly {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(32px, 4vw, 64px);
-}
-.p03-sticky {
-  position: sticky;
-  top: calc(var(--strip-h) + 36px);
-  height: calc(100vh - var(--strip-h) - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wiring {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1 / 1;
-  border: var(--rule);
-  background: var(--newsprint);
-  position: relative;
-  padding: 24px;
-}
-.wiring::before {
-  content: "FIG. 03 / WIRING";
-  position: absolute;
-  top: 10px; left: 16px;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .16em;
-  color: var(--ink-3);
-}
-.wiring::after {
-  content: "CONFIDENTIAL · INTERNAL";
-  position: absolute;
-  bottom: 10px; right: 16px;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .16em;
-  color: var(--ink-3);
-}
-.wiring svg { width: 100%; height: 100%; overflow: visible; }
-.w-node-bg { fill: var(--newsprint); stroke: var(--ink); stroke-width: 1.25; transition: fill .3s var(--ease), stroke .3s var(--ease); }
-.w-node-bg.live { fill: var(--stamp); stroke: var(--stamp); }
-.w-node-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; fill: var(--ink); transition: fill .3s var(--ease); }
-.w-node-bg.live ~ .w-node-label, .w-node-bg.live + .w-node-label { fill: var(--newsprint); }
-.w-node-sub { font-family: var(--f-mono); font-size: 8px; fill: var(--ink-3); }
-.w-edge { stroke: var(--ink); stroke-width: 1.25; fill: none; stroke-dasharray: 4 4; opacity: .35; transition: stroke .35s var(--ease), opacity .35s var(--ease), stroke-dasharray .35s var(--ease); }
-.w-edge.live { stroke: var(--stamp); stroke-dasharray: none; opacity: 1; }
-.w-edge.green { stroke-dasharray: 1 5; opacity: .5; }
-.w-edge.green.live { stroke: var(--plotter); stroke-dasharray: none; opacity: 1; }
-.w-pulse { fill: var(--stamp); opacity: 0; transform-origin: center; }
-.w-ph-stamp {
-  fill: var(--gold);
-  stroke: var(--gold-deep);
-  stroke-width: 1;
-  opacity: 0;
-  transition: opacity .55s var(--ease) .3s;
-}
-.wiring.outcome .w-ph-stamp { opacity: 1; }
-
-.p03-steps { display: flex; flex-direction: column; gap: 0; }
-.p03-step {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8vh 0;
-  border-bottom: var(--rule-soft);
-}
-.p03-step:last-child { border-bottom: 0; }
-.p03-step-tag {
-  display: flex; align-items: center; gap: 12px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin-bottom: 16px;
-}
-.p03-step-tag .num { color: var(--stamp); }
-.p03-step-tag .dot { width: 8px; height: 8px; background: var(--ink-3); border-radius: 0; }
-.p03-step.active .p03-step-tag .dot { background: var(--stamp); }
-.p03-step h3 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(26px, 3.2vw, 42px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-variation-settings: "opsz" 48, "wdth" 95;
-  color: var(--ink);
-  text-transform: lowercase;
-  margin-bottom: 16px;
-}
-.p03-step h3 em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 48;
-}
-.p03-step p {
-  font-size: 15.5px;
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 38ch;
-}
-.p03-step .step-meta {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: var(--rule-soft);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  max-width: 38ch;
-}
-
-.p03-outro {
-  grid-column: 1 / -1;
-  margin-top: clamp(48px, 6vw, 80px);
-  padding: clamp(40px, 5vw, 64px) 0;
-  border-top: var(--rule);
-  text-align: center;
-}
-.p03-outro .stamp-pill {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 10px 16px;
-  border: 1px solid var(--gold);
-  background: color-mix(in srgb, var(--gold) 14%, transparent);
-  color: var(--gold-deep);
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.p03-outro .stamp-pill::before { content: "✦"; color: var(--gold-deep); }
-.p03-outro h2 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(28px, 3.4vw, 48px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-variation-settings: "opsz" 60;
-  max-width: 26ch;
-  margin: 0 auto;
-  text-transform: lowercase;
-}
-.p03-outro h2 em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 60;
-}
-
-/* ============================================================
-   PLATE 04 · INDEX OF WORKS
-   ============================================================ */
-.p04-intro {
-  grid-column: 1 / 11;
-  margin-bottom: clamp(28px, 3vw, 40px);
-}
-.p04-intro h2 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: .95;
-  letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 80;
-  text-transform: lowercase;
-  margin-bottom: 16px;
-}
-.p04-intro h2 em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 72;
-}
-.p04-intro p {
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: var(--ink-2);
-  max-width: 52ch;
-}
-
-.work-list {
-  grid-column: 1 / -1;
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-}
-.work-row {
-  display: grid;
-  grid-template-columns: 80px 1fr 200px 130px 50px;
-  gap: 20px;
-  align-items: center;
-  padding: 22px 4px;
-  border-bottom: var(--rule-soft);
-  cursor: pointer;
-  position: relative;
-  transition: background .25s var(--ease);
-}
-.work-row:last-of-type { border-bottom: 0; }
-.work-row:hover { background: var(--newsprint-2); }
-.work-row.open { background: var(--newsprint-2); }
-.wr-cat {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .12em;
-  color: var(--stamp);
-  font-variant-numeric: tabular-nums;
-}
-.wr-title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  font-variation-settings: "opsz" 40, "wdth" 95;
-  text-transform: lowercase;
-  color: var(--ink);
-}
-.wr-title em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-  font-variation-settings: "opsz" 40;
-}
-.wr-role {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.wr-metric {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: 17px;
-  color: var(--stamp-deep);
-  text-align: right;
-  font-variation-settings: "opsz" 20;
-}
-.wr-glyph {
-  font-family: var(--f-mono);
-  font-size: 14px;
-  color: var(--ink);
-  text-align: right;
-  transition: transform .35s var(--ease);
-}
-.work-row.open .wr-glyph { transform: rotate(180deg); color: var(--stamp); }
-
-.wr-detail {
-  grid-column: 1 / -1;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .55s var(--ease-out);
-}
-.work-row.open .wr-detail { max-height: 1400px; }
-.wr-detail-inner {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(28px, 3.5vw, 48px);
-  padding: 32px 0 12px;
-}
-
-/* Per-project plate (the "screenshot" replaced by typographic plate) */
-.proj-plate {
-  position: relative;
-  aspect-ratio: 7 / 5;
-  background: var(--newsprint-2);
-  border: var(--rule);
-  overflow: hidden;
-}
-.proj-plate svg { width: 100%; height: 100%; }
-.proj-plate-tag {
-  position: absolute;
-  top: 10px; left: 12px;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .16em;
-  color: var(--ink-3);
-}
-.proj-plate-num {
-  position: absolute;
-  bottom: 10px; right: 14px;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  color: var(--ink-3);
-}
-.callout-line { stroke: var(--ink); stroke-width: 0.75; fill: none; opacity: .55; }
-.callout-line.green { stroke: var(--plotter); }
-
-.wr-side {
-  display: flex; flex-direction: column; gap: 18px;
-}
-.wr-decision {
-  font-family: var(--f-italic);
-  font-size: 18px;
-  line-height: 1.45;
-  color: var(--ink);
-  font-variation-settings: "opsz" 22;
-}
-.wr-decision .label {
-  display: block;
-  font-family: var(--f-mono);
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  margin-bottom: 8px;
-}
-.wr-decision .em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-}
-.wr-decision .body {
-  font-family: var(--f-body);
-  font-style: normal;
-  font-size: 15.5px;
-}
-.wr-decision .body em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-  font-variation-settings: "opsz" 18;
-}
-.wr-specgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  border-top: var(--rule-soft);
-}
-.wr-specgrid > div {
-  padding: 12px 14px 14px 0;
-  border-bottom: var(--rule-soft);
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.wr-specgrid > div:nth-child(2n) { padding-left: 14px; border-left: var(--rule-soft); }
-.wr-specgrid dt { color: var(--ink-3); margin-bottom: 4px; }
-.wr-specgrid dd { color: var(--ink); font-weight: 500; }
-.wr-callouts {
-  display: grid;
-  gap: 6px;
-  margin-top: 8px;
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.wr-callouts li {
-  display: grid;
-  grid-template-columns: 26px 1fr;
-  gap: 8px;
-  align-items: start;
-  list-style: none;
-}
-.wr-callouts .mark { margin-top: -2px; }
-
-/* ============================================================
-   PLATE 03 · ASK SAHIL
-   ============================================================ */
-.p05-intro {
-  grid-column: 1 / 11;
-  margin-bottom: clamp(32px, 4vw, 56px);
-}
-.p05-intro h2 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: .95;
-  letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 80;
-  text-transform: lowercase;
-  margin-bottom: 16px;
-}
-.p05-intro h2 em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp);
-}
-.p05-intro p {
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: var(--ink-2);
-  max-width: 52ch;
-}
-
-/* Plotter trace timeline */
-.plotter-trace {
-  grid-column: 1 / -1;
-  margin-bottom: clamp(48px, 6vw, 88px);
-  padding: 32px 0;
-  border-top: var(--rule);
-  border-bottom: var(--rule);
-  position: relative;
-  overflow: hidden;
-}
-.plotter-trace::before {
-  content: "FIG. 05A / WORKDAY TRACE / 09:00 → 18:30 IST";
-  position: absolute;
-  top: 10px; left: 0;
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .16em;
-  color: var(--ink-3);
-}
-.trace-svg {
-  width: 100%;
-  height: 240px;
-  overflow: visible;
-}
-.trace-line {
-  stroke: var(--ink);
-  stroke-width: 1;
-  fill: none;
-  stroke-dasharray: 1600;
-  stroke-dashoffset: 1600;
-  transition: stroke-dashoffset 2.2s cubic-bezier(.65,.05,.3,1);
-}
-.trace-line.draw { stroke-dashoffset: 0; }
-.trace-node circle { fill: var(--newsprint); stroke: var(--ink); stroke-width: 1.25; }
-.trace-node.live circle { fill: var(--stamp); stroke: var(--stamp); }
-.trace-node text { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; fill: var(--ink-2); }
-.trace-node .t-time { fill: var(--stamp); font-weight: 600; }
-.trace-node .t-act { fill: var(--ink); font-weight: 500; }
-.trace-tag {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: 11px;
-  fill: var(--ink-3);
-}
-
-/* Ask Sahil desk */
-.desk {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: clamp(28px, 3.5vw, 56px);
-  border-top: var(--rule);
-  padding-top: clamp(32px, 4vw, 56px);
-}
-.desk-tag {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 12px;
-  display: flex; align-items: center; gap: 10px;
-}
-.desk-tag::before { content: "㊋"; color: var(--stamp); font-family: var(--f-italic); font-style: normal; font-size: 16px; }
-
-.desk-index h3 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
-  text-transform: lowercase;
-}
-.desk-index .desk-sub {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 20px;
-}
-.desk-list {
-  list-style: none;
-  display: flex; flex-direction: column;
-}
-.desk-list li { border-top: var(--rule-soft); }
-.desk-list li:last-child { border-bottom: var(--rule-soft); }
-.desk-q {
-  display: grid;
-  grid-template-columns: 36px 1fr 60px;
-  gap: 14px;
-  align-items: center;
-  width: 100%;
-  text-align: left;
-  padding: 13px 4px;
-  font: inherit;
-  color: var(--ink);
-  cursor: pointer;
-  position: relative;
-  transition: background .2s var(--ease), padding .25s var(--ease);
-}
-.desk-q:hover { background: var(--newsprint-2); padding-left: 12px; }
-.desk-q.active { background: var(--stamp); color: var(--newsprint); }
-.desk-q.active .desk-pg { color: var(--newsprint); }
-.desk-q.active .desk-num { color: var(--newsprint); }
-.desk-num {
-  font-family: var(--f-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--stamp);
-  letter-spacing: .04em;
-}
-.desk-label {
-  font-family: var(--f-display);
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: -0.005em;
-  text-transform: lowercase;
-}
-.desk-pg {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  text-align: right;
-}
-.desk-pg::before { content: "pg. "; opacity: .65; }
-
-.desk-form {
-  margin-top: 22px;
-  display: flex; align-items: center; gap: 10px;
-  padding: 12px 4px;
-  border-top: var(--rule);
-}
-.desk-form .desk-tag-form {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  color: var(--stamp);
-  text-transform: uppercase;
-}
-.desk-form input {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  border-bottom: var(--rule);
-  padding: 8px 0;
-  font: 400 15px var(--f-body);
-  color: var(--ink);
-}
-.desk-form input::placeholder { color: var(--ink-3); }
-.desk-form input:focus { border-bottom-color: var(--stamp); }
-.desk-form button {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  padding: 8px 12px;
-  border: 1px solid var(--stamp);
-}
-.desk-form button:hover { background: var(--stamp); color: var(--newsprint); }
-
-/* Response panel */
-.desk-response {
-  position: relative;
-  min-height: 360px;
-  padding: 0 0 0 0;
-  border: var(--rule);
-  background: var(--newsprint);
-  display: flex; flex-direction: column;
-}
-.desk-resp-head {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 12px 18px;
-  border-bottom: var(--rule);
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.desk-resp-head .filenum { color: var(--stamp); font-weight: 600; }
-.desk-resp-body {
-  flex: 1;
-  padding: 28px 32px 32px;
-  position: relative;
-}
-.desk-resp-leader {
-  position: absolute;
-  top: 30px; left: 0;
-  width: 24px; height: 24px;
-  border-top: var(--rule-stamp);
-  border-left: var(--rule-stamp);
-  opacity: 0;
-  transition: opacity .35s var(--ease);
-}
-.desk-response.active .desk-resp-leader { opacity: 1; }
-.desk-resp-q {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: var(--rule-soft);
-}
-.desk-resp-text {
-  font-family: var(--f-italic);
-  font-size: 19px;
-  line-height: 1.5;
-  color: var(--ink);
-  font-variation-settings: "opsz" 24;
-  letter-spacing: -0.003em;
-  min-height: 220px;
-}
-.desk-resp-text em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-}
-.desk-resp-text .cursor {
-  display: inline-block;
-  width: 8px; height: 1em;
-  background: var(--stamp);
-  vertical-align: -2px;
-  margin-left: 2px;
-  animation: blink 1s steps(2) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .desk-resp-text .cursor { animation: none; } }
-.desk-resp-foot {
-  padding: 12px 18px;
-  border-top: var(--rule-soft);
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  display: flex; justify-content: space-between;
-}
-
-/* ============================================================
-   PLATE 06 · IMPRINT
-   ============================================================ */
-.p06-title-block {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  gap: clamp(12px, 1.8vw, 24px);
-  margin-bottom: clamp(40px, 5vw, 64px);
-}
-.p06-title {
-  grid-column: 1 / 12;
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(56px, 10vw, 152px);
-  line-height: .85;
-  letter-spacing: -0.04em;
-  font-variation-settings: "opsz" 96, "wdth" 90;
-  text-transform: lowercase;
-}
-.p06-title .em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-}
-.p06-title .stamp-here {
-  display: inline-block;
-  margin-left: 0.1em;
-  padding: 0.05em 0.15em;
-  border: 3px solid var(--stamp);
-  color: var(--stamp);
-  font-family: var(--f-mono);
-  font-size: 0.18em;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transform: rotate(-2deg);
-  vertical-align: 0.45em;
-  font-variation-settings: normal;
-  font-style: normal;
-}
-
-.p06-status {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2vw, 32px);
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-.status-card {
-  border: var(--rule);
-  background: var(--newsprint-2);
-  padding: 20px 22px 24px;
-  position: relative;
-}
-.status-card-tag {
-  display: flex; align-items: center; gap: 8px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  margin-bottom: 14px;
-}
-.status-card-tag .blip {
-  width: 7px; height: 7px;
-  background: var(--stamp);
-  box-shadow: 0 0 0 0 var(--stamp);
-  animation: blip 2s ease infinite;
-}
-@keyframes blip {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--stamp) 60%, transparent); }
-  70% { box-shadow: 0 0 0 8px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-@media (prefers-reduced-motion: reduce) { .status-card-tag .blip { animation: none; } }
-.status-card-val {
-  font-family: var(--f-display);
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 1.4;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-}
-.status-card-val em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--stamp-deep);
-}
-
-.p06-contact {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(28px, 4vw, 56px);
-  padding-top: clamp(40px, 5vw, 64px);
-  border-top: var(--rule);
-}
-.contact-cta {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(34px, 4.6vw, 68px);
-  line-height: 1;
-  letter-spacing: -0.025em;
-  font-variation-settings: "opsz" 72;
-  text-transform: lowercase;
-}
-.contact-cta em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-}
-.contact-cta a {
-  display: inline-block;
-  position: relative;
-}
-.contact-cta a::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 6px;
-  height: 3px;
-  background: var(--stamp);
-  transform: scaleX(1);
-  transform-origin: left;
-  transition: transform .5s var(--ease-out);
-}
-.contact-cta a:hover::after { transform: scaleX(0); transform-origin: right; }
-
-.contact-card {
-  border: var(--rule);
-  padding: 22px 24px;
-  background: var(--newsprint-2);
-}
-.contact-card-tag {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 12px;
-}
-.contact-card-tag .em { color: var(--stamp); }
-.contact-card-addr {
-  font-family: var(--f-mono);
-  font-size: 13px;
-  line-height: 1.65;
-  letter-spacing: .04em;
-  color: var(--ink);
-  margin-bottom: 14px;
-}
-.contact-card-links {
-  display: flex; flex-direction: column; gap: 6px;
-  padding-top: 12px;
-  border-top: var(--rule-soft);
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.contact-card-links a { display: inline-flex; align-items: center; gap: 8px; }
-.contact-card-links a::before { content: "→"; color: var(--stamp); }
-.contact-card-links a:hover { color: var(--stamp); }
-
-.imprint {
-  grid-column: 1 / -1;
-  margin-top: clamp(56px, 7vw, 100px);
-  padding: 22px 0;
-  border-top: var(--rule);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  line-height: 1.65;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.imprint strong { color: var(--ink); font-weight: 500; }
-.imprint .em { color: var(--stamp); }
-
-/* ============================================================
-   COLOPHON SPREAD (easter egg)
-   ============================================================ */
-.colo {
-  position: fixed; inset: 0;
-  z-index: 200;
-  background: var(--ink);
-  color: var(--newsprint);
-  display: grid;
-  place-items: center;
-  padding: clamp(28px, 4vw, 64px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .5s var(--ease);
-  overflow-y: auto;
-}
-.colo.open { opacity: 1; pointer-events: auto; }
-.colo-spread {
-  max-width: 880px;
-  width: 100%;
-  background: var(--newsprint);
-  color: var(--ink);
-  padding: clamp(36px, 5vw, 72px);
-  position: relative;
-  transform: translateY(24px);
-  opacity: 0;
-  transition: transform .55s var(--ease-out) .05s, opacity .45s var(--ease) .05s;
-}
-.colo.open .colo-spread { transform: translateY(0); opacity: 1; }
-.colo-close {
-  position: absolute;
-  top: 18px; right: 22px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  padding: 6px 10px;
-  border: 1px solid var(--ink-3);
-}
-.colo-close:hover { color: var(--stamp); border-color: var(--stamp); }
-.colo-tag {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--gold-deep);
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: var(--rule);
-}
-.colo h3 {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: .95;
-  letter-spacing: -0.03em;
-  font-variation-settings: "opsz" 72;
-  text-transform: lowercase;
-  margin-bottom: 8px;
-}
-.colo h3 em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--stamp);
-}
-.colo-sub {
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--ink-2);
-  margin-bottom: 32px;
-}
-.colo-grid {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 12px 28px;
-  font-size: 14px;
-  margin-bottom: 28px;
-}
-.colo-grid dt {
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--stamp);
-  padding-top: 4px;
-}
-.colo-grid dd { color: var(--ink-2); padding-bottom: 12px; border-bottom: var(--rule-soft); }
-.colo-grid dd em {
-  font-family: var(--f-italic);
-  font-style: italic;
-  color: var(--ink);
-}
-.colo-foot {
-  padding-top: 20px;
-  border-top: var(--rule);
-  font-family: var(--f-italic);
-  font-style: italic;
-  font-size: 16px;
-  color: var(--ink-2);
-  font-variation-settings: "opsz" 18;
-}
-.colo-foot .v { color: var(--stamp-deep); }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 1100px) {
-  .plate-head { grid-template-columns: 4fr 6fr 6fr; }
-  .p01-title { grid-column: 1 / -1; }
-  .p01-gauges { grid-column: 1 / -1; }
-  .system-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .p02-prose { grid-column: 1 / -1; }
-  .p02-stamps { grid-column: 1 / -1; }
-  .p02-pull { grid-column: 1 / -1; }
-  .p03-title { grid-column: 1 / -1; }
-  .p03-lede { grid-column: 1 / -1; }
-  .p03-scrolly { grid-template-columns: 1fr; }
-  .p03-sticky { position: relative; top: auto; height: auto; padding: 24px 0; }
-  .p03-step { min-height: auto; padding: 36px 0; }
-  .work-row { grid-template-columns: 60px 1fr 100px 40px; }
-  .wr-role { display: none; }
-  .wr-detail-inner { grid-template-columns: 1fr; }
-  .desk { grid-template-columns: 1fr; }
-  .p06-contact { grid-template-columns: 1fr; }
-  .p06-status { grid-template-columns: 1fr; }
-  .imprint { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 720px) {
-  body { font-size: 15px; }
-  .strip { grid-template-columns: 1fr auto; height: 48px; padding: 0 16px; }
-  .strip-c { display: none; }
-  .strip-l { gap: 10px; }
-  main { padding-top: 48px; }
-  .plate-head { grid-template-columns: 1fr; gap: 20px; }
-  .plate-spec { grid-template-columns: repeat(2, 1fr); }
-  .work-row { grid-template-columns: 40px 1fr 28px; }
-  .wr-metric { display: none; }
-  .imprint { grid-template-columns: 1fr; }
-  .system-strip { grid-template-columns: 1fr; }
-  .system-chip { min-height: 66px; }
-  .p01-marquee { margin-top: 32px; }
-}
-
-/* prefers-reduced-motion: keep everything visible */
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-  .gauge-needle { transition: none; }
-  .trace-line { stroke-dashoffset: 0; transition: none; }
+/* responsive */
+@media (max-width:1100px){
+  .work-item,.exp-item,.stack-row{grid-template-columns:180px 1fr;gap:24px;}
+}
+@media (max-width:720px){
+  section{padding:64px 0;}
+  #hero{padding:88px 0 64px;}
+  .nav-links{display:none;}
+  .work-item,.exp-item,.stack-row{grid-template-columns:1fr;gap:8px;}
+  .work-item{padding:24px 0;}
+  .exp-item{padding:20px 0;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .exp-dates{order:-1;}
+  .work-role{order:-1;}
+  .contact-row{flex-direction:column;align-items:flex-start;gap:4px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     CATALOG HEADER STRIP
-     ============================================================ -->
-<nav class="strip" aria-label="Catalog header">
-  <div class="strip-l">
-    <span class="strip-code"><span class="num" id="plate-num">№ 01</span> · OF · 06</span>
-    <span class="strip-plate" id="plate-name">Editor's plate</span>
-  </div>
-  <div class="strip-c">
-    <span class="strip-pub">Sahil Pal · <em>Field Catalog</em> · 2026</span>
-  </div>
-  <div class="strip-r">
-    <span class="strip-coord">BLR · 12.97°N · <span class="live" id="ist-time">--:--</span> IST</span>
-    <button class="strip-mark" id="archival-mark" aria-label="Archival mark — tap five times for colophon" title="Five taps…">※</button>
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-name">Sahil Pal</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
 <main>
 
-<!-- ============================================================
-     PLATE 01 · COLD OPEN
-     ============================================================ -->
-<section class="plate" id="pl-01" data-plate-num="01" data-plate-name="Editor's plate" aria-labelledby="p01-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>01</strong>
-        <span>EDITOR'S</span>
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="reveal">
+      <span class="hero-status"><span class="dot" aria-hidden="true"></span> Freelance at MAV Consulting · open to full-time</span>
+      <h1>Sahil Pal</h1>
+      <p class="positioning">Product designer for AI and B2B SaaS. Four years from discovery to shipped interface.</p>
+      <p class="context">Currently the sole designer on an AI-powered real estate CRM at MAV Consulting. Previously at WeCP, where I co-designed Sherlock, an AI interview platform that launched on Product Hunt.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#work">View work</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a class="btn btn-ghost" href="mailto:sahilpal55@gmail.com">Email me</a>
       </div>
-      <div>
-        <div class="plate-kicker"><span class="em">PG.</span> 04 / 64 · OPENING PLATE</div>
-        <div class="plate-title-sml">A field catalog of product work, marked by systems, metrics, and shipped edges.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Edition</dt><dd>03 · 2026</dd></div>
-        <div><dt>Editor</dt><dd>S. Pal</dd></div>
-        <div><dt>Press</dt><dd>BLR · 12.97°N</dd></div>
-        <div><dt>Folio</dt><dd>2026.05.A</dd></div>
-      </dl>
-    </header>
-
-    <div class="p01-body">
-      <h1 class="p01-title" id="p01-h">
-        i design <span class="em">outcomes</span>
-      </h1>
-
-      <div class="p01-gauges" aria-label="Headline metrics, set as analog gauges">
-        <!-- Gauge 1 -->
-        <div class="gauge">
-          <div class="gauge-head"><span class="id">G·01</span><span>SESSION</span></div>
-          <svg class="gauge-svg" viewBox="0 0 120 88" data-target-angle="60" aria-hidden="true">
-            <!-- arc 0..120deg, sweep right -->
-            <path class="gauge-dial" d="M 14 76 A 50 50 0 0 1 106 76" />
-            <path class="gauge-arc" d="M 14 76 A 50 50 0 0 1 106 76" stroke-dasharray="157" stroke-dashoffset="157" id="g1-arc" />
-            <line class="gauge-tick" x1="14" y1="76" x2="20" y2="73" />
-            <line class="gauge-tick" x1="32" y1="50" x2="36" y2="55" />
-            <line class="gauge-tick-major" x1="60" y1="26" x2="60" y2="32" />
-            <line class="gauge-tick" x1="88" y1="50" x2="84" y2="55" />
-            <line class="gauge-tick" x1="106" y1="76" x2="100" y2="73" />
-            <line class="gauge-needle" id="g1-needle" x1="60" y1="76" x2="60" y2="32" />
-            <circle class="gauge-pin" cx="60" cy="76" r="4" />
-            <circle class="gauge-pin-stamp" cx="60" cy="76" r="1.5" />
-          </svg>
-          <div class="gauge-readout">
-            <span class="sym">+</span>
-            <span class="val counter" data-count="30" data-pad="2">00</span>
-            <span class="pct">%</span>
-          </div>
-          <div class="gauge-cap">Session uplift · <span class="em">WeCP marketing</span> · 2024</div>
-        </div>
-
-        <!-- Gauge 2 -->
-        <div class="gauge">
-          <div class="gauge-head"><span class="id">G·02</span><span>BUILD TIME</span></div>
-          <svg class="gauge-svg" viewBox="0 0 120 88" data-target-angle="-72" aria-hidden="true">
-            <path class="gauge-dial" d="M 14 76 A 50 50 0 0 1 106 76" />
-            <path class="gauge-arc" d="M 14 76 A 50 50 0 0 1 106 76" stroke-dasharray="157" stroke-dashoffset="157" id="g2-arc" />
-            <line class="gauge-tick" x1="14" y1="76" x2="20" y2="73" />
-            <line class="gauge-tick" x1="32" y1="50" x2="36" y2="55" />
-            <line class="gauge-tick-major" x1="60" y1="26" x2="60" y2="32" />
-            <line class="gauge-tick" x1="88" y1="50" x2="84" y2="55" />
-            <line class="gauge-tick" x1="106" y1="76" x2="100" y2="73" />
-            <line class="gauge-needle" id="g2-needle" x1="60" y1="76" x2="60" y2="32" />
-            <circle class="gauge-pin" cx="60" cy="76" r="4" />
-            <circle class="gauge-pin-stamp" cx="60" cy="76" r="1.5" />
-          </svg>
-          <div class="gauge-readout">
-            <span class="sym">−</span>
-            <span class="val counter" data-count="40" data-pad="2">00</span>
-            <span class="pct">%</span>
-          </div>
-          <div class="gauge-cap">Webflow modular · <span class="em">40 pages, one system</span></div>
-        </div>
-
-        <!-- Gauge 3 -->
-        <div class="gauge">
-          <div class="gauge-head"><span class="id">G·03</span><span>TASK STEPS</span></div>
-          <svg class="gauge-svg" viewBox="0 0 120 88" data-target-angle="-54" aria-hidden="true">
-            <path class="gauge-dial" d="M 14 76 A 50 50 0 0 1 106 76" />
-            <path class="gauge-arc" d="M 14 76 A 50 50 0 0 1 106 76" stroke-dasharray="157" stroke-dashoffset="157" id="g3-arc" />
-            <line class="gauge-tick" x1="14" y1="76" x2="20" y2="73" />
-            <line class="gauge-tick" x1="32" y1="50" x2="36" y2="55" />
-            <line class="gauge-tick-major" x1="60" y1="26" x2="60" y2="32" />
-            <line class="gauge-tick" x1="88" y1="50" x2="84" y2="55" />
-            <line class="gauge-tick" x1="106" y1="76" x2="100" y2="73" />
-            <line class="gauge-needle" id="g3-needle" x1="60" y1="76" x2="60" y2="32" />
-            <circle class="gauge-pin" cx="60" cy="76" r="4" />
-            <circle class="gauge-pin-stamp" cx="60" cy="76" r="1.5" />
-          </svg>
-          <div class="gauge-readout">
-            <span class="sym">−</span>
-            <span class="val counter" data-count="30" data-pad="2">00</span>
-            <span class="pct">%</span>
-          </div>
-          <div class="gauge-cap">AgriApp redesign · <span class="em">farmers, JTBD</span></div>
-        </div>
-      </div>
-
-      <div class="system-strip" aria-label="Field Catalog design tokens">
-        <div class="system-chip" style="--chip: var(--ink);"><strong>Ink</strong><em>#102638</em></div>
-        <div class="system-chip" style="--chip: var(--stamp-bright);"><strong>Rust</strong><em>#D64B24</em></div>
-        <div class="system-chip" style="--chip: var(--plotter);"><strong>Plotter</strong><em>#236A4A</em></div>
-        <div class="system-chip" style="--chip: var(--blueprint);"><strong>Blueprint</strong><em>#2457A6</em></div>
-        <div class="system-chip" style="--chip: var(--gold);"><strong>Brass</strong><em>#B6812E</em></div>
-      </div>
-
-      <div class="p01-marquee" aria-hidden="true">
-        <div class="p01-marquee-track">
-          <span>Senior Product Designer <span class="sep">·</span> Bengaluru, India <span class="sep">·</span> Available for senior roles <span class="sep">·</span> Webflow · Framer · Figma <span class="sep">·</span> Model-literate workflow <span class="sep">·</span> WCAG AA by default <span class="sep">·</span> Marketer-turned-designer <span class="sep">·</span> Ships small daily <span class="sep">·</span></span>
-          <span>Senior Product Designer <span class="sep">·</span> Bengaluru, India <span class="sep">·</span> Available for senior roles <span class="sep">·</span> Webflow · Framer · Figma <span class="sep">·</span> Model-literate workflow <span class="sep">·</span> WCAG AA by default <span class="sep">·</span> Marketer-turned-designer <span class="sep">·</span> Ships small daily <span class="sep">·</span></span>
-        </div>
+      <div class="hero-meta">
+        <span>Location · Bengaluru, India</span>
+        <span>Remote experience · US, India clients</span>
+        <span>Notice period · immediate to 30 days</span>
       </div>
     </div>
+  </section>
 
-    <div class="plate-footrail">
-      <div class="footrail-label">Footnotes ·</div>
-      <ol>
-        <li>Edition 03, printed at the BLR press, 2026.05.</li>
-        <li>All metrics from active client engagements 2023–2026.</li>
-        <li>Type: Archivo · Literata · Atkinson Hyperlegible · IBM Plex Mono.</li>
-      </ol>
-    </div>
-  </div>
+  <!-- WORK -->
+  <section id="work" aria-label="Selected work">
+    <p class="kicker">Selected work</p>
+    <h2>Work that shipped</h2>
+    <div class="work-list">
 
-  <div class="p01-edge">Scroll · six plates</div>
-</section>
-
-<!-- ============================================================
-     PLATE 02 · ORIGIN — Provenance
-     ============================================================ -->
-<section class="plate" id="pl-02" data-plate-num="02" data-plate-name="Provenance" aria-labelledby="p02-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>02</strong>
-        <span>PROVENANCE</span>
-      </div>
-      <div>
-        <div class="plate-kicker"><span class="em">PG.</span> 08 / 64 · ORIGIN</div>
-        <div class="plate-title-sml">A marketer-turned-designer's career, in four stamps.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Subject</dt><dd>S. Pal</dd></div>
-        <div><dt>Span</dt><dd>2019–2026</dd></div>
-        <div><dt>Field</dt><dd>Product / UX</dd></div>
-        <div><dt>Rev.</dt><dd>04</dd></div>
-      </dl>
-    </header>
-
-    <div class="p02-grid">
-      <h2 class="p02-title" id="p02-h">i started <span class="em">in marketing.</span></h2>
-
-      <div class="p02-prose">
-        <p>Before product design, I was the person writing the headline, debugging the funnel, and arguing about whether the CTA should be twelve pixels lower. <span class="mark-bg">It taught me to think in outcomes</span>, not interfaces.</p>
-        <p>In 2022 I formalised the craft through the IDF UX/UI &amp; Design Systems certificate — a structured framework on top of three years of shipping. By the end of that year I was at <strong>Appiness</strong>, redesigning AgriApp for tens of thousands of farmers, then at <strong>WeCP</strong> as the sole designer across marketing <em>and</em> product.</p>
-        <p class="ink-2">Four years in, I still write better when I've sketched, and sketch better when I've measured.</p>
-      </div>
-
-      <div class="p02-stamps" role="list">
-        <div class="stamp-row" role="listitem">
-          <div class="stamp"><span class="yr">2019</span><span>Digital</span></div>
-          <div class="stamp-desc">
-            <span class="ann">№ 02.01 · Marketing roots</span>
-            Pencilton, Hypercube, Webware.io — three years of social, growth, and funnel work. Learned to measure before I learned to compose.
-          </div>
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <div class="work-tags"><span class="tag">PropTech</span><span class="tag">AI</span></div>
+          <span class="work-role">MAV Consulting · 2026</span>
         </div>
-        <div class="stamp-row" role="listitem">
-          <div class="stamp"><span class="yr">2022</span><span>IDF cert</span></div>
-          <div class="stamp-desc">
-            <span class="ann">№ 02.02 · The pivot</span>
-            Formal UX/UI &amp; Design Systems certification — gave <em>language</em> to instincts I'd built shipping for three years. Then straight into product work.
-          </div>
-        </div>
-        <div class="stamp-row" role="listitem">
-          <div class="stamp"><span class="yr">2022</span><span>Product</span></div>
-          <div class="stamp-desc">
-            <span class="ann">№ 02.03 · Appiness</span>
-            AgriApp for tens of thousands of farmers, then Manipal Hospitals' regional system. The first time I designed for users who didn't share my literacy or my latency.
-          </div>
-        </div>
-        <div class="stamp-row" role="listitem">
-          <div class="stamp"><span class="yr">2024</span><span>Solo</span></div>
-          <div class="stamp-desc">
-            <span class="ann">№ 02.04 · WeCP, then MAV</span>
-            Sole designer across marketing <em>and</em> product at WeCP for two years. Now freelance at MAV building an AI real-estate CRM, while looking for the next senior seat.
-          </div>
-        </div>
-      </div>
-
-      <figure class="p02-pull">
-        <div class="p02-pull-num">№ 02·Q</div>
-        <blockquote>
-          "I think in funnels and decisions. The pixels come second — and they show up better when the funnel is right."
-        </blockquote>
-        <cite>S. Pal · annual interview, 2026</cite>
-      </figure>
-
-      <dl class="p02-meta">
-        <div><dt>BASED</dt><dd>Bengaluru, IN</dd></div>
-        <div><dt>EXPERIENCE</dt><dd>4+ years</dd></div>
-        <div><dt>CERTIFIED</dt><dd>IDF · UX/UI · Design Systems</dd></div>
-      </dl>
-    </div>
-
-    <div class="plate-footrail">
-      <div class="footrail-label">Footnotes ·</div>
-      <ol>
-        <li>IDF: The Interaction Design Foundation.</li>
-        <li>"Funnels and decisions" — author's phrasing, 2026 interview.</li>
-        <li>Manipal Hospitals system: eight regional brand themes.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PLATE 03 · ASK SAHIL
-     ============================================================ -->
-<section class="plate" id="pl-03" data-plate-num="03" data-plate-name="Ask Sahil" aria-labelledby="p05-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>03</strong>
-        <span>ASK SAHIL</span>
-      </div>
-      <div>
-        <div class="plate-kicker"><span class="em">PG.</span> 48 / 64 · WORKDAY &amp; Q.E.D.</div>
-        <div class="plate-title-sml">A workday, plotted. Ask Sahil anything.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Shift</dt><dd>09:00 → 18:30</dd></div>
-        <div><dt>Tools</dt><dd>Model critique · Figma</dd></div>
-        <div><dt>Method</dt><dd>2-round critique</dd></div>
-        <div><dt>Files</dt><dd>varies</dd></div>
-      </dl>
-    </header>
-
-    <div class="p05-intro" id="p05-h">
-      <h2>a workday, <em>literally.</em></h2>
-      <p>This is what an honest Tuesday looks like in 2026. Model critique is in the loop, but the final judgment stays human. Ask Sahil below — he answers the usual questions in his own voice.</p>
-    </div>
-
-    <div class="plotter-trace">
-      <svg class="trace-svg" viewBox="0 0 1400 240" preserveAspectRatio="none" aria-label="Workday plotter trace">
-        <!-- Main line -->
-        <path class="trace-line" id="trace-line" d="M 40 130 Q 200 130 280 120 T 460 110 T 660 130 T 860 100 T 1060 140 T 1240 110 T 1380 130" />
-        <!-- Time nodes -->
-        <g class="trace-node" transform="translate(40, 130)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">09:00</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">SKETCH</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">by hand · 10 min</text>
-        </g>
-        <g class="trace-node" transform="translate(230, 125)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">09:30</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">MODEL</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">"push back"</text>
-        </g>
-        <g class="trace-node" transform="translate(440, 112)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">10:30</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">FIGMA MAKE</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">six variants</text>
-        </g>
-        <g class="trace-node" transform="translate(660, 130)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">12:00</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">REBUILD</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">by hand</text>
-        </g>
-        <g class="trace-node" transform="translate(880, 105)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">15:00</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">CRITIQUE</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">3 perspectives</text>
-        </g>
-        <g class="trace-node" transform="translate(1080, 140)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">16:30</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">BUILD</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">Webflow · axe</text>
-        </g>
-        <g class="trace-node" transform="translate(1280, 112)">
-          <circle cx="0" cy="0" r="7"/>
-          <text x="0" y="-22" class="t-time" text-anchor="middle">18:30</text>
-          <text x="0" y="32" class="t-act" text-anchor="middle">SHIP</text>
-          <text x="0" y="48" class="trace-tag" text-anchor="middle">small + real</text>
-        </g>
-      </svg>
-    </div>
-
-    <div class="desk">
-      <div class="desk-index">
-        <div class="desk-tag">㊋ Ask Sahil</div>
-        <h3>ask sahil.</h3>
-        <div class="desk-sub">Ask about the work, the process, or anything else. Filed answers, plotted on request.</div>
-
-        <ul class="desk-list" id="desk-list" role="list">
-          <li><button class="desk-q" data-q="philosophy"><span class="desk-num">㊀</span><span class="desk-label">design philosophy</span><span class="desk-pg">12</span></button></li>
-          <li><button class="desk-q" data-q="ai"><span class="desk-num">㊁</span><span class="desk-label">AI in the workflow</span><span class="desk-pg">14</span></button></li>
-          <li><button class="desk-q" data-q="available"><span class="desk-num">㊂</span><span class="desk-label">availability</span><span class="desk-pg">16</span></button></li>
-          <li><button class="desk-q" data-q="proudest"><span class="desk-num">㊃</span><span class="desk-label">proudest project</span><span class="desk-pg">18</span></button></li>
-          <li><button class="desk-q" data-q="weakness"><span class="desk-num">㊄</span><span class="desk-label">biggest weakness</span><span class="desk-pg">20</span></button></li>
-          <li><button class="desk-q" data-q="remote"><span class="desk-num">㊅</span><span class="desk-label">remote work</span><span class="desk-pg">22</span></button></li>
-          <li><button class="desk-q" data-q="salary"><span class="desk-num">㊆</span><span class="desk-label">compensation</span><span class="desk-pg">24</span></button></li>
-          <li><button class="desk-q" data-q="stack"><span class="desk-num">㊇</span><span class="desk-label">stack</span><span class="desk-pg">26</span></button></li>
-          <li><button class="desk-q" data-q="teams"><span class="desk-num">㊈</span><span class="desk-label">teams</span><span class="desk-pg">28</span></button></li>
-          <li><button class="desk-q" data-q="location"><span class="desk-num">㊉</span><span class="desk-label">location</span><span class="desk-pg">30</span></button></li>
-          <li><button class="desk-q" data-q="journey"><span class="desk-num">⓫</span><span class="desk-label">journey</span><span class="desk-pg">32</span></button></li>
-          <li><button class="desk-q" data-q="weekend"><span class="desk-num">⓬</span><span class="desk-label">weekends</span><span class="desk-pg">34</span></button></li>
-          <li><button class="desk-q" data-q="name"><span class="desk-num">⓭</span><span class="desk-label">who is Sahil</span><span class="desk-pg">36</span></button></li>
-          <li><button class="desk-q" data-q="current"><span class="desk-num">⓮</span><span class="desk-label">current work</span><span class="desk-pg">38</span></button></li>
-          <li><button class="desk-q" data-q="skills"><span class="desk-num">⓯</span><span class="desk-label">skills</span><span class="desk-pg">40</span></button></li>
-          <li><button class="desk-q" data-q="experience"><span class="desk-num">⓰</span><span class="desk-label">experience</span><span class="desk-pg">42</span></button></li>
-          <li><button class="desk-q" data-q="contact"><span class="desk-num">⓱</span><span class="desk-label">contact</span><span class="desk-pg">44</span></button></li>
-        </ul>
-
-        <form class="desk-form" id="desk-form" autocomplete="off">
-          <span class="desk-tag-form">ASK · </span>
-          <input id="desk-input" type="text" placeholder="ask anything — design, systems, hiring…" aria-label="Ask Sahil a question">
-          <button type="submit">Send ↵</button>
-        </form>
-      </div>
-
-      <article class="desk-response" id="desk-response" aria-live="polite">
-        <div class="desk-resp-head">
-          <span>FILE № <span class="filenum" id="desk-filenum">—.—</span></span>
-          <span id="desk-status">DESK IDLE</span>
-        </div>
-        <div class="desk-resp-body">
-          <div class="desk-resp-leader" aria-hidden="true"></div>
-          <div class="desk-resp-q" id="desk-respq">Select an entry from the index, or type your own question.</div>
-          <div class="desk-resp-text" id="desk-resptext">
-            <em>Plotter idle. The desk will respond when a query is filed.</em>
-          </div>
-        </div>
-        <div class="desk-resp-foot">
-          <span>FORMAT · annotated prose</span>
-          <span id="desk-stamp">UNSTAMPED</span>
+        <div class="work-body">
+          <h3>AI-powered real estate CRM</h3>
+          <p>Sole designer from brand to product. Led the visual and brand overhaul of MAV's website, built six landing pages with custom interactive calculators, and presented 19-page decks to clients in live webinars.</p>
+          <p>Used Figma Make and Google Stitch for rapid ideation, cutting concept time by 40%. Restructured the review process from 4-5 rounds to 2, cutting delivery time by 30%.</p>
+          <a class="work-link" href="https://mavconsultinggroup.com" target="_blank" rel="noopener">mavconsultinggroup.com →</a>
         </div>
       </article>
-    </div>
 
-    <div class="plate-footrail">
-      <div class="footrail-label">Footnotes ·</div>
-      <ol>
-        <li>Plotter trace from a representative Tuesday, 2026.05.</li>
-        <li>All filed answers written by S. Pal, not generated by the tools in the loop.</li>
-        <li>Free-form questions are welcome — answers fuzzy-matched to filed entries.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PLATE 04 · INDEX OF WORKS
-     ============================================================ -->
-<section class="plate" id="pl-04" data-plate-num="04" data-plate-name="Index of works" aria-labelledby="p04-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>04</strong>
-        <span>INDEX OF WORKS</span>
-      </div>
-      <div>
-        <div class="plate-kicker"><span class="em">PG.</span> 24 / 64 · CATALOGUE</div>
-        <div class="plate-title-sml">Six entries, expanded to spec on request.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Entries</dt><dd>06</dd></div>
-        <div><dt>Span</dt><dd>2022–2026</dd></div>
-        <div><dt>Sectors</dt><dd>5</dd></div>
-        <div><dt>Status</dt><dd>Shipped</dd></div>
-      </dl>
-    </header>
-
-    <div class="p04-intro" id="p04-h">
-      <h2>an <em>index,</em><br>not a portfolio.</h2>
-      <p>Six projects. Each entry shows the metric, the decision behind it, and a typographic plate that would have shipped as the case-study cover in print. Tap a row to open the spec.</p>
-    </div>
-
-    <div class="work-list" role="list">
-
-      <!-- 04.01 WeCP marketing -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.01</div>
-        <div class="wr-title">wecp <em>marketing</em> redesign</div>
-        <div class="wr-role">Sole designer · Webflow · 2024</div>
-        <div class="wr-metric">+20–30% sessions</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.01 / PLATE</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <!-- Funnel diagram -->
-                <text x="40" y="60" font-family="IBM Plex Mono" font-size="11" letter-spacing="2" fill="#31475A">CONVERSION FUNNEL · BEFORE / AFTER</text>
-                <!-- Before funnel (left) -->
-                <g transform="translate(70,90)">
-                  <polygon points="0,0 220,0 180,60 40,60" fill="#CCB785" stroke="#102638" stroke-width="0.75"/>
-                  <polygon points="40,60 180,60 160,120 60,120" fill="#CCB785" stroke="#102638" stroke-width="0.75"/>
-                  <polygon points="60,120 160,120 150,180 70,180" fill="#CCB785" stroke="#102638" stroke-width="0.75"/>
-                  <polygon points="70,180 150,180 140,240 80,240" fill="#CCB785" stroke="#102638" stroke-width="0.75"/>
-                  <text x="110" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#596674">BEFORE</text>
-                </g>
-                <!-- After funnel (right) -->
-                <g transform="translate(410,90)">
-                  <polygon points="0,0 220,0 200,60 20,60" fill="#D64B24" fill-opacity=".22" stroke="#D64B24" stroke-width="1"/>
-                  <polygon points="20,60 200,60 180,120 40,120" fill="#D64B24" fill-opacity=".28" stroke="#D64B24" stroke-width="1"/>
-                  <polygon points="40,120 180,120 165,180 55,180" fill="#D64B24" fill-opacity=".34" stroke="#D64B24" stroke-width="1"/>
-                  <polygon points="55,180 165,180 145,240 75,240" fill="#D64B24" fill-opacity=".44" stroke="#D64B24" stroke-width="1"/>
-                  <text x="110" y="270" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#D64B24">AFTER · +30%</text>
-                </g>
-                <!-- Callout numbers -->
-                <circle cx="180" cy="110" r="11" fill="#F2E5C7" stroke="#102638" stroke-width="1"/>
-                <text x="180" y="114" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">1</text>
-                <line class="callout-line" x1="180" y1="121" x2="180" y2="350"/>
-                <text x="180" y="365" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#31475A" letter-spacing="1.5">FEATURES</text>
-
-                <circle cx="520" cy="110" r="11" fill="#D64B24" stroke="#D64B24"/>
-                <text x="520" y="114" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">2</text>
-                <line class="callout-line" x1="520" y1="121" x2="520" y2="350" stroke="#D64B24"/>
-                <text x="520" y="365" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#D64B24" letter-spacing="1.5">OUTCOMES</text>
-
-                <text x="350" y="450" text-anchor="middle" font-family="Literata" font-style="italic" font-size="16" fill="#102638">"Outcomes over features."</text>
-              </svg>
-              <span class="proj-plate-num">04.01 · wecp · 2024</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.01·D · The decision that mattered</span>
-                <div class="body">The old site sold features. <em>I rewrote it to sell outcomes</em> — "see how an AI interview saves you 6 hours per hire" — and rebuilt the funnel around that promise. Conversion followed without a single new pixel of feature copy.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark">1</span>Old funnel led with feature lists. Conversion plateaued ~1.2%.</li>
-                <li><span class="mark live">2</span>New funnel leads with hour-savings outcome. Lift +20–30% sustained.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Webflow · CMS · Figma</dd></div>
-                <div><dt>METHOD</dt><dd>Funnel rewrite · A/B</dd></div>
-                <div><dt>SCOPE</dt><dd>Marketing site</dd></div>
-                <div><dt>YEAR</dt><dd>2024</dd></div>
-              </dl>
-            </div>
-          </div>
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <div class="work-tags"><span class="tag">AI hiring</span><span class="tag">B2B SaaS</span></div>
+          <span class="work-role">WeCP · 2024-2025</span>
         </div>
-      </div>
-
-      <!-- 04.02 Sherlock -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.02</div>
-        <div class="wr-title"><em>sherlock</em> · ai interview integrity</div>
-        <div class="wr-role">Co-designer · product · 2024</div>
-        <div class="wr-metric">Product Hunt launch</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.02 / DIAGRAM</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <text x="40" y="50" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#31475A">SIGNAL PIPELINE · SHERLOCK</text>
-                <!-- Three vertical lanes -->
-                <line x1="150" y1="80" x2="150" y2="440" stroke="#102638" stroke-width="0.75" stroke-dasharray="3 3"/>
-                <line x1="350" y1="80" x2="350" y2="440" stroke="#102638" stroke-width="0.75" stroke-dasharray="3 3"/>
-                <line x1="550" y1="80" x2="550" y2="440" stroke="#102638" stroke-width="0.75" stroke-dasharray="3 3"/>
-                <text x="150" y="75" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#596674" letter-spacing="2">CANDIDATE</text>
-                <text x="350" y="75" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#D64B24" letter-spacing="2">MODEL</text>
-                <text x="550" y="75" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#596674" letter-spacing="2">RECRUITER</text>
-                <!-- Flow boxes -->
-                <rect x="105" y="120" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="150" y="140" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">TYPING</text>
-                <rect x="105" y="180" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="150" y="200" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">PAUSE</text>
-                <rect x="105" y="240" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="150" y="260" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">FOCUS</text>
-
-                <rect x="305" y="180" width="90" height="60" fill="#D64B24" stroke="#D64B24"/>
-                <text x="350" y="206" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#F2E5C7" font-weight="600">SHERLOCK</text>
-                <text x="350" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#F2E5C7">classifier</text>
-
-                <rect x="505" y="160" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="550" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">SIGNAL 1</text>
-                <rect x="505" y="200" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="550" y="220" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">SIGNAL 2</text>
-                <rect x="505" y="240" width="90" height="32" fill="#F2E5C7" stroke="#102638"/>
-                <text x="550" y="260" text-anchor="middle" font-family="IBM Plex Mono" font-size="9">SIGNAL 3</text>
-
-                <!-- Edges -->
-                <path d="M 195 140 L 305 200" stroke="#236A4A" fill="none" stroke-width="1" stroke-dasharray="2 3"/>
-                <path d="M 195 200 L 305 220" stroke="#236A4A" fill="none" stroke-width="1" stroke-dasharray="2 3"/>
-                <path d="M 195 260 L 305 230" stroke="#236A4A" fill="none" stroke-width="1" stroke-dasharray="2 3"/>
-                <path d="M 395 200 L 505 176" stroke="#D64B24" fill="none" stroke-width="1.25" marker-end="url(#arr)"/>
-                <path d="M 395 215 L 505 216" stroke="#D64B24" fill="none" stroke-width="1.25" marker-end="url(#arr)"/>
-                <path d="M 395 230 L 505 256" stroke="#D64B24" fill="none" stroke-width="1.25" marker-end="url(#arr)"/>
-
-                <!-- Callout -->
-                <circle cx="350" cy="320" r="11" fill="#D64B24"/>
-                <text x="350" y="324" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">1</text>
-                <text x="350" y="350" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#D64B24" letter-spacing="1.5">CONFIDENCE → PROSE</text>
-                <text x="350" y="385" text-anchor="middle" font-family="Literata" font-style="italic" font-size="14" fill="#102638">"Explain. Don't accuse."</text>
-              </svg>
-              <span class="proj-plate-num">04.02 · wecp · 2024</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.02·D · The decision that mattered</span>
-                <div class="body">Behavioural signals in <em>plain language</em>, not a confidence score. Recruiters trust prose more than probability. Full story in Plate 03 above — this row exists so the index is honest.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark live">1</span>Model output translated to three plain-language signals.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Figma · Plain-lang ML</dd></div>
-                <div><dt>METHOD</dt><dd>Service blueprint · JTBD</dd></div>
-                <div><dt>SCOPE</dt><dd>Product feature</dd></div>
-                <div><dt>YEAR</dt><dd>2024</dd></div>
-              </dl>
-            </div>
-          </div>
+        <div class="work-body">
+          <h3>Sherlock · AI interview platform</h3>
+          <p>Co-designed Sherlock, WeCP's AI interviewing product, from concept to Product Hunt launch. Shipped key product screens and flows across the core AI interviewing platform as the team's sole designer.</p>
+          <a class="work-link" href="https://wecreateproblems.com" target="_blank" rel="noopener">wecreateproblems.com →</a>
         </div>
-      </div>
+      </article>
 
-      <!-- 04.03 Webflow modular -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.03</div>
-        <div class="wr-title">40+ <em>webflow</em> pages, one system</div>
-        <div class="wr-role">Marketing engineering · WeCP · 2024</div>
-        <div class="wr-metric">−40% build time</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.03 / SYSTEM</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <text x="40" y="50" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#31475A">MODULAR LIBRARY · 15 BLOCKS</text>
-                <!-- Grid of 15 blocks -->
-                <g transform="translate(40,80)">
-                  <!-- 5 cols x 3 rows -->
-                  <g>
-                    <rect x="0" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="50" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">HERO</text>
-                    <rect x="120" y="0" width="100" height="80" fill="#D64B24" fill-opacity=".18" stroke="#102638" stroke-width="0.75"/>
-                    <text x="170" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">PROOF</text>
-                    <rect x="240" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="290" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">COMP.</text>
-                    <rect x="360" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="410" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">FAQ</text>
-                    <rect x="480" y="0" width="100" height="80" fill="#D64B24" fill-opacity=".18" stroke="#102638" stroke-width="0.75"/>
-                    <text x="530" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">CTA</text>
-                  </g>
-                  <g transform="translate(0,100)">
-                    <rect x="0" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="50" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">FEAT.</text>
-                    <rect x="120" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="170" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">QUOTE</text>
-                    <rect x="240" y="0" width="100" height="80" fill="#D64B24" fill-opacity=".18" stroke="#102638" stroke-width="0.75"/>
-                    <text x="290" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">METRIC</text>
-                    <rect x="360" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="410" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">LOGOS</text>
-                    <rect x="480" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="530" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">TABLE</text>
-                  </g>
-                  <g transform="translate(0,200)">
-                    <rect x="0" y="0" width="100" height="80" fill="#D64B24" fill-opacity=".18" stroke="#102638" stroke-width="0.75"/>
-                    <text x="50" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">VIDEO</text>
-                    <rect x="120" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="170" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">SPLIT</text>
-                    <rect x="240" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="290" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">PRICE</text>
-                    <rect x="360" y="0" width="100" height="80" fill="#F2E5C7" stroke="#102638" stroke-width="0.75"/>
-                    <text x="410" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">STEPS</text>
-                    <rect x="480" y="0" width="100" height="80" fill="#D64B24" fill-opacity=".18" stroke="#102638" stroke-width="0.75"/>
-                    <text x="530" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">FOOT.</text>
-                  </g>
-                </g>
-                <circle cx="350" cy="440" r="11" fill="#D64B24"/>
-                <text x="350" y="444" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">1</text>
-                <text x="380" y="444" font-family="IBM Plex Mono" font-size="10" fill="#D64B24" letter-spacing="1.5">15 BLOCKS · ANY PAGE IN HALF A DAY</text>
-              </svg>
-              <span class="proj-plate-num">04.03 · wecp · 2024</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.03·D · The decision that mattered</span>
-                <div class="body">Stopped designing pages. Started designing <em>blocks.</em> Fifteen reusable Webflow components — hero, proof, comparison, FAQ, CTA — composable in any order. New page now takes a half-day. Every page passes WCAG AA by default.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark live">1</span>15 modular blocks documented in Notion. Composable, AA-safe.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Webflow · Notion</dd></div>
-                <div><dt>METHOD</dt><dd>Component library</dd></div>
-                <div><dt>SCOPE</dt><dd>40+ pages</dd></div>
-                <div><dt>YEAR</dt><dd>2024</dd></div>
-              </dl>
-            </div>
-          </div>
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <div class="work-tags"><span class="tag">Marketing site</span><span class="tag">Webflow</span></div>
+          <span class="work-role">WeCP · 2024</span>
         </div>
-      </div>
-
-      <!-- 04.04 AgriApp -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.04</div>
-        <div class="wr-title">agriapp · <em>jtbd redesign</em> for farmers</div>
-        <div class="wr-role">Product designer · Appiness · 2023</div>
-        <div class="wr-metric">−30% task steps</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.04 / FLOW</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <text x="40" y="50" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#31475A">FARMER JOURNEY · BEFORE / AFTER</text>
-                <!-- Before: 13 steps -->
-                <text x="40" y="90" font-family="IBM Plex Mono" font-size="11" fill="#596674" letter-spacing="1.5">BEFORE · 13 STEPS</text>
-                <g transform="translate(40,110)">
-                  <line x1="0" y1="15" x2="620" y2="15" stroke="#102638" stroke-width="0.5" stroke-dasharray="2 3"/>
-                </g>
-                <g transform="translate(40,110)" font-family="IBM Plex Mono" font-size="10" fill="#102638">
-                  <circle cx="0" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="52" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="104" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="156" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="208" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="260" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="312" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="364" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="416" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="468" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="520" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="572" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                  <circle cx="620" cy="15" r="5" fill="#F2E5C7" stroke="#102638"/>
-                </g>
-                <!-- After: 9 steps -->
-                <text x="40" y="220" font-family="IBM Plex Mono" font-size="11" fill="#D64B24" letter-spacing="1.5">AFTER · 9 STEPS · JTBD</text>
-                <g transform="translate(40,240)">
-                  <line x1="0" y1="15" x2="620" y2="15" stroke="#D64B24" stroke-width="0.75"/>
-                </g>
-                <g transform="translate(40,240)">
-                  <circle cx="0" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="78" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="156" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="234" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="312" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="390" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="468" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="546" cy="15" r="7" fill="#D64B24"/>
-                  <circle cx="620" cy="15" r="7" fill="#D64B24"/>
-                </g>
-                <!-- Callout -->
-                <circle cx="350" cy="360" r="11" fill="#D64B24"/>
-                <text x="350" y="364" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">1</text>
-                <text x="350" y="390" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#D64B24" letter-spacing="1.5">REFRAMED: NOT "DATA" · "A DECISION"</text>
-                <text x="350" y="430" text-anchor="middle" font-family="Literata" font-style="italic" font-size="16" fill="#102638">"Spray today or wait?"</text>
-              </svg>
-              <span class="proj-plate-num">04.04 · agriapp · 2023</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.04·D · The decision that mattered</span>
-                <div class="body">We assumed farmers wanted information. They wanted <em>a decision —</em> "spray today or wait." Reframing every flow around the next action (Jobs To Be Done) collapsed thirteen-step diagnostic journeys into nine. Icon-led, low-literacy first.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark live">1</span>JTBD reframe — task collapsed 13 → 9 steps.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Figma · 3 languages</dd></div>
-                <div><dt>METHOD</dt><dd>JTBD · icon-first IA</dd></div>
-                <div><dt>SCOPE</dt><dd>Tens of thousands</dd></div>
-                <div><dt>YEAR</dt><dd>2023</dd></div>
-              </dl>
-            </div>
-          </div>
+        <div class="work-body">
+          <h3>Marketing site redesign</h3>
+          <p>Led the end-to-end redesign of WeCP's marketing site. Session duration and lead conversion rose 20-30% after launch. Built 40+ responsive pages on a modular Webflow system that cut build time by 40%.</p>
+          <a class="work-link" href="https://wecreateproblems.com" target="_blank" rel="noopener">wecreateproblems.com →</a>
         </div>
-      </div>
+      </article>
 
-      <!-- 04.05 Manipal -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.05</div>
-        <div class="wr-title">manipal hospitals · <em>community portal</em></div>
-        <div class="wr-role">Design system lead · Appiness · 2023</div>
-        <div class="wr-metric">−40% handoff friction</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.05 / TOKENS</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <text x="40" y="50" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#31475A">ONE SYSTEM · EIGHT REGIONAL THEMES</text>
-                <!-- Center: core -->
-                <circle cx="350" cy="260" r="50" fill="#F2E5C7" stroke="#102638" stroke-width="1"/>
-                <text x="350" y="258" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600">CORE</text>
-                <text x="350" y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#596674">tokens · A11Y</text>
-                <!-- 8 regional satellites -->
-                <g font-family="IBM Plex Mono" font-size="9" fill="#102638">
-                  <circle cx="350" cy="130" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="350" y="134" text-anchor="middle">BLR</text>
-                  <circle cx="490" cy="170" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="490" y="174" text-anchor="middle">JMR</text>
-                  <circle cx="550" cy="260" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="550" y="264" text-anchor="middle">GOA</text>
-                  <circle cx="490" cy="350" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="490" y="354" text-anchor="middle">MNG</text>
-                  <circle cx="350" cy="390" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="350" y="394" text-anchor="middle">PNQ</text>
-                  <circle cx="210" cy="350" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="210" y="354" text-anchor="middle">DEL</text>
-                  <circle cx="150" cy="260" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="150" y="264" text-anchor="middle">KAS</text>
-                  <circle cx="210" cy="170" r="22" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/><text x="210" y="174" text-anchor="middle">MCH</text>
-                </g>
-                <!-- Spokes -->
-                <g stroke="#102638" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.5">
-                  <line x1="350" y1="210" x2="350" y2="152"/>
-                  <line x1="392" y1="231" x2="471" y2="187"/>
-                  <line x1="400" y1="260" x2="528" y2="260"/>
-                  <line x1="392" y1="290" x2="471" y2="333"/>
-                  <line x1="350" y1="310" x2="350" y2="368"/>
-                  <line x1="308" y1="290" x2="229" y2="333"/>
-                  <line x1="300" y1="260" x2="172" y2="260"/>
-                  <line x1="308" y1="231" x2="229" y2="187"/>
-                </g>
-                <circle cx="350" cy="450" r="11" fill="#D64B24"/>
-                <text x="350" y="454" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">1</text>
-                <text x="380" y="454" font-family="IBM Plex Mono" font-size="9" fill="#D64B24" letter-spacing="1.5">8 ACCENT TOKENS · 1 CORE</text>
-              </svg>
-              <span class="proj-plate-num">04.05 · manipal · 2023</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.05·D · The decision that mattered</span>
-                <div class="body">India's largest hospital network had eight regional brand variants. Instead of fighting for one, I built a <em>tokenised</em> design system where each region picked its accent inside guardrails. Engineering shipped a third faster.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark live">1</span>One core · 8 regional accent themes · A11Y baked in.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Figma · Variables</dd></div>
-                <div><dt>METHOD</dt><dd>Token system</dd></div>
-                <div><dt>SCOPE</dt><dd>India's largest net</dd></div>
-                <div><dt>YEAR</dt><dd>2023</dd></div>
-              </dl>
-            </div>
-          </div>
+      <article class="work-item reveal">
+        <div class="work-meta">
+          <div class="work-tags"><span class="tag">AgriTech</span><span class="tag">Mobile</span></div>
+          <span class="work-role">Appiness · 2023</span>
         </div>
-      </div>
-
-      <!-- 04.06 MAV -->
-      <div class="work-row" role="listitem" tabindex="0" aria-expanded="false">
-        <div class="wr-cat">№ 04.06</div>
-        <div class="wr-title">mav · <em>ai real-estate crm</em></div>
-        <div class="wr-role">Sole designer · freelance · 2026</div>
-        <div class="wr-metric">−40% concept time</div>
-        <div class="wr-glyph">▾</div>
-        <div class="wr-detail">
-          <div class="wr-detail-inner">
-            <div class="proj-plate plate-halftone">
-              <span class="proj-plate-tag">FIG. 04.06 / WORKFLOW</span>
-              <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
-                <text x="40" y="50" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#31475A">IDEATION LOOP · OLD / NEW</text>
-                <!-- OLD: 3 weeks -->
-                <text x="40" y="100" font-family="IBM Plex Mono" font-size="11" fill="#596674" letter-spacing="1.5">OLD LOOP · 3 WEEKS</text>
-                <g transform="translate(40,120)">
-                  <rect x="0" y="0" width="120" height="40" fill="#F2E5C7" stroke="#102638"/>
-                  <text x="60" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10">SKETCH</text>
-                  <rect x="160" y="0" width="120" height="40" fill="#F2E5C7" stroke="#102638"/>
-                  <text x="220" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10">FIGMA</text>
-                  <rect x="320" y="0" width="120" height="40" fill="#F2E5C7" stroke="#102638"/>
-                  <text x="380" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10">REVIEW × 5</text>
-                  <rect x="480" y="0" width="120" height="40" fill="#F2E5C7" stroke="#102638"/>
-                  <text x="540" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10">SHIP</text>
-                  <path d="M 120 20 L 160 20" stroke="#102638" stroke-width="0.75" marker-end="url(#arr)"/>
-                  <path d="M 280 20 L 320 20" stroke="#102638" stroke-width="0.75" marker-end="url(#arr)"/>
-                  <path d="M 440 20 L 480 20" stroke="#102638" stroke-width="0.75" marker-end="url(#arr)"/>
-                </g>
-                <!-- NEW: 1 week -->
-                <text x="40" y="240" font-family="IBM Plex Mono" font-size="11" fill="#D64B24" letter-spacing="1.5">NEW LOOP · 1 WEEK · MODEL-ASSISTED</text>
-                <g transform="translate(40,260)">
-                  <rect x="0" y="0" width="120" height="40" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/>
-                  <text x="60" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600">MODEL</text>
-                  <rect x="160" y="0" width="120" height="40" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/>
-                  <text x="220" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600">FIGMA MAKE</text>
-                  <rect x="320" y="0" width="120" height="40" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/>
-                  <text x="380" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600">REVIEW × 2</text>
-                  <rect x="480" y="0" width="120" height="40" fill="#D64B24" fill-opacity=".25" stroke="#D64B24"/>
-                  <text x="540" y="24" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600">SHIP</text>
-                  <path d="M 120 20 L 160 20" stroke="#D64B24" stroke-width="1" marker-end="url(#arr)"/>
-                  <path d="M 280 20 L 320 20" stroke="#D64B24" stroke-width="1" marker-end="url(#arr)"/>
-                  <path d="M 440 20 L 480 20" stroke="#D64B24" stroke-width="1" marker-end="url(#arr)"/>
-                </g>
-                <circle cx="220" cy="380" r="11" fill="#D64B24"/>
-                <text x="220" y="384" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" font-weight="600" fill="#F2E5C7">1</text>
-                <text x="250" y="384" font-family="IBM Plex Mono" font-size="10" fill="#D64B24" letter-spacing="1.5">MODEL HANDLES DIVERGENCE · I HANDLE CRAFT</text>
-                <text x="350" y="440" text-anchor="middle" font-family="Literata" font-style="italic" font-size="16" fill="#102638">"Partner, not pen."</text>
-              </svg>
-              <span class="proj-plate-num">04.06 · mav · 2026</span>
-            </div>
-            <div class="wr-side">
-              <div class="wr-decision">
-                <span class="label">№ 04.06·D · The decision that mattered</span>
-                <div class="body">I built the brand <em>and</em> the product. Used <em>Figma Make + Google Stitch</em> to compress the early ideation loop from three weeks to one. The founder reviews twice, not five times — I introduced a structured two-round critique that cut delivery by 30%.</div>
-              </div>
-              <ul class="wr-callouts">
-                <li><span class="mark live">1</span>AI compresses divergence; craft survives.</li>
-              </ul>
-              <dl class="wr-specgrid">
-                <div><dt>STACK</dt><dd>Figma Make · Stitch</dd></div>
-                <div><dt>METHOD</dt><dd>2-round review</dd></div>
-                <div><dt>SCOPE</dt><dd>Brand + product</dd></div>
-                <div><dt>YEAR</dt><dd>2026</dd></div>
-              </dl>
-            </div>
-          </div>
+        <div class="work-body">
+          <h3>AgriApp redesign for farmers</h3>
+          <p>Redesigned AgriApp, used by tens of thousands of active farmers, using the Jobs-to-be-Done framework. Cut task steps by 30% by restructuring the core workflows farmers use daily.</p>
+          <a class="work-link" href="https://www.behance.net/gallery/177356281" target="_blank" rel="noopener">View on Behance →</a>
         </div>
-      </div>
+      </article>
 
     </div>
+  </section>
 
-    <div class="plate-footrail">
-      <div class="footrail-label">Footnotes ·</div>
-      <ol>
-        <li>All plates set in the field-catalog diagram convention (halftone + leader-line annotation).</li>
-        <li>Metrics from client-reported engagement data, 2023–2026.</li>
-        <li>NDAs respected; UI surfaces represented diagrammatically.</li>
-      </ol>
-    </div>
-  </div>
-</section>
+  <!-- EXPERIENCE -->
+  <section id="experience" aria-label="Experience">
+    <p class="kicker">Experience</p>
+    <h2>Where I've worked</h2>
+    <div class="exp-list">
 
-<!-- ============================================================
-     PLATE 05 · TURNING POINT — Sherlock
-     ============================================================ -->
-<section class="plate" id="pl-05" data-plate-num="05" data-plate-name="Turning point" aria-labelledby="p03-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>05</strong>
-        <span>TURNING POINT</span>
-      </div>
-      <div>
-        <div class="plate-kicker"><span class="em">CASE STUDY</span> · WECP / 2024 / SHERLOCK</div>
-        <div class="plate-title-sml">Wiring diagram &amp; field notes for a launch.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Client</dt><dd>WeCP</dd></div>
-        <div><dt>Year</dt><dd>2024</dd></div>
-        <div><dt>Role</dt><dd>Co-designer</dd></div>
-        <div><dt>Status</dt><dd>Launched</dd></div>
-      </dl>
-    </header>
-
-    <div class="p03-title-block">
-      <h2 class="p03-title" id="p03-h">sherlock. <em>catching</em> ai cheating, kindly.</h2>
-      <p class="p03-lede">Candidates started piping interview questions through ChatGPT. WeCP needed a <em>signal</em>, not a wall. We shipped a confidence layer that watches behavioural patterns and tells the interviewer in language they'd actually use. Launched on Product Hunt.</p>
-    </div>
-
-    <div class="p03-stack">
-      <div class="p03-scrolly">
-        <div class="p03-sticky">
-          <div class="wiring" id="wiring">
-            <svg viewBox="0 0 500 500" aria-label="Sherlock system wiring diagram">
-              <defs>
-                <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M 0 0 L 8 4 L 0 8 Z" fill="currentColor"/>
-                </marker>
-              </defs>
-
-              <!-- Edges -->
-              <path class="w-edge" id="we-1" d="M 250 90 L 250 220" marker-end="url(#arr)" />
-              <path class="w-edge green" id="we-2" d="M 110 250 L 220 250" />
-              <path class="w-edge green" id="we-3" d="M 390 250 L 280 250" />
-              <path class="w-edge" id="we-4" d="M 250 290 L 250 410" marker-end="url(#arr)" />
-              <path class="w-edge" id="we-5" d="M 130 150 Q 200 200 230 240" />
-              <path class="w-edge" id="we-6" d="M 370 150 Q 300 200 270 240" />
-
-              <!-- Top: Candidate -->
-              <g>
-                <rect class="w-node-bg" id="wn-1-bg" x="180" y="50" width="140" height="50" />
-                <text class="w-node-label" x="250" y="74" text-anchor="middle">CANDIDATE</text>
-                <text class="w-node-sub" x="250" y="89" text-anchor="middle">live session signals</text>
-              </g>
-
-              <!-- Left: Behaviour -->
-              <g>
-                <rect class="w-node-bg" id="wn-2-bg" x="10" y="225" width="100" height="50" />
-                <text class="w-node-label" x="60" y="249" text-anchor="middle">BEHAVIOUR</text>
-                <text class="w-node-sub" x="60" y="264" text-anchor="middle">pace &amp; pattern</text>
-              </g>
-
-              <!-- Right: Question pool -->
-              <g>
-                <rect class="w-node-bg" id="wn-3-bg" x="390" y="225" width="100" height="50" />
-                <text class="w-node-label" x="440" y="249" text-anchor="middle">QUESTIONS</text>
-                <text class="w-node-sub" x="440" y="264" text-anchor="middle">difficulty graph</text>
-              </g>
-
-              <!-- Center: Sherlock -->
-              <g>
-                <rect class="w-node-bg" id="wn-c-bg" x="200" y="220" width="100" height="60" />
-                <text class="w-node-label" x="250" y="246" text-anchor="middle">SHERLOCK</text>
-                <text class="w-node-sub" x="250" y="262" text-anchor="middle">behaviour</text>
-                <text class="w-node-sub" x="250" y="272" text-anchor="middle">→ plain language</text>
-              </g>
-
-              <!-- Bottom: Interviewer -->
-              <g>
-                <rect class="w-node-bg" id="wn-4-bg" x="180" y="410" width="140" height="50" />
-                <text class="w-node-label" x="250" y="434" text-anchor="middle">INTERVIEWER</text>
-                <text class="w-node-sub" x="250" y="449" text-anchor="middle">decision in prose</text>
-              </g>
-
-              <!-- Pulse -->
-              <circle class="w-pulse" cx="250" cy="250" r="6" />
-
-              <!-- PH archival stamp (revealed on final step) -->
-              <g class="w-ph-stamp" transform="translate(330,380) rotate(-8)">
-                <rect x="0" y="0" width="80" height="34" />
-                <text x="40" y="15" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" letter-spacing="2" fill="#6C4B18">PRODUCT HUNT</text>
-                <text x="40" y="26" text-anchor="middle" font-family="Atkinson Hyperlegible" font-weight="700" font-size="10" fill="#6C4B18">LAUNCHED · 2024</text>
-              </g>
-
-              <!-- Coordinate marks -->
-              <text class="w-node-sub" x="14" y="22">A1</text>
-              <text class="w-node-sub" x="478" y="22">A2</text>
-              <text class="w-node-sub" x="14" y="490">B1</text>
-              <text class="w-node-sub" x="478" y="490">B2</text>
-            </svg>
-          </div>
+      <article class="exp-item reveal">
+        <div class="exp-dates">Jan 2026 - Present<br>Remote</div>
+        <div>
+          <p class="exp-role">Freelance · Contract</p>
+          <h3>MAV Consulting Group · Webflow Developer &amp; Visual Designer</h3>
+          <ul>
+            <li>Sole designer on an AI-powered real estate CRM</li>
+            <li>Full brand and website overhaul, built from scratch</li>
+            <li>6+ high-converting Webflow landing pages with interactive calculators</li>
+          </ul>
         </div>
+      </article>
 
-        <div class="p03-steps">
-          <article class="p03-step" data-edges="we-1,we-5" data-nodes="wn-1-bg">
-            <div class="p03-step-tag"><span class="dot"></span><span class="num">STEP 01</span><span>· PROBLEM</span></div>
-            <h3>candidates were piping questions through <em>chatgpt.</em></h3>
-            <p>Interviewers couldn't tell. Pass rates inflated. Recruiters flagged it on instinct but had no shared language — just a screen-recording playback nobody had time to watch.</p>
-            <div class="step-meta">Constraint · sole designer, marketing + product · 6-week window</div>
-          </article>
-          <article class="p03-step" data-edges="we-2,we-3" data-nodes="wn-2-bg,wn-3-bg">
-            <div class="p03-step-tag"><span class="dot"></span><span class="num">STEP 02</span><span>· INSIGHT</span></div>
-            <h3>behaviour is louder than <em>output.</em></h3>
-            <p>Two weeks with the AI/ML team mapping what a real candidate's session looks like — pause patterns, typing rhythm, tab focus, question-difficulty fit. The model was half-built; the design problem was translating its confidence into something a non-technical recruiter would trust.</p>
-            <div class="step-meta">Frameworks · JTBD · service blueprint · plain-language ML</div>
-          </article>
-          <article class="p03-step" data-edges="we-4" data-nodes="wn-c-bg,wn-4-bg">
-            <div class="p03-step-tag"><span class="dot"></span><span class="num">STEP 03</span><span>· DECISION</span></div>
-            <h3>not an alarm — a <em>second opinion.</em></h3>
-            <p>I argued against a confidence score (recruiters distrust numbers from black boxes). Sherlock surfaces three plain-language signals per session — "candidate paused unusually," "answer style shifted mid-question." The recruiter still decides. The model just makes them braver.</p>
-            <div class="step-meta">Principle · explain, don't accuse</div>
-          </article>
-          <article class="p03-step" data-edges="we-1,we-2,we-3,we-4,we-5,we-6" data-nodes="wn-1-bg,wn-2-bg,wn-3-bg,wn-c-bg,wn-4-bg" data-outcome="1">
-            <div class="p03-step-tag"><span class="dot"></span><span class="num">STEP 04</span><span>· OUTCOME</span></div>
-            <h3>launched. shipped to <em>every paying customer.</em></h3>
-            <p>Flag-volume per interviewer dropped because the signals were trustworthy from day one. Three enterprise prospects cited Sherlock in their RFPs. Inside WeCP, it became the proof point that marketing and product design could be the same designer.</p>
-            <div class="step-meta">Result · launched 2024 · adopted across 100% of paying customers</div>
-          </article>
+      <article class="exp-item reveal">
+        <div class="exp-dates">Dec 2023 - Dec 2025<br>Bengaluru, then remote</div>
+        <div>
+          <p class="exp-role">Full-time</p>
+          <h3>WeCP (We Create Problems) · Product &amp; UI/UX Designer</h3>
+          <ul>
+            <li>Sole designer across marketing and product for 2 years</li>
+            <li>Co-designed Sherlock, launched on Product Hunt</li>
+            <li>Marketing site redesign: +20-30% session duration and lead conversion</li>
+          </ul>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="p03-outro">
-      <div class="stamp-pill">Product Hunt · Launched 2024</div>
-      <h2>this is the project that <em>moved me senior.</em> not the title — the trust.</h2>
-    </div>
-
-    <div class="plate-footrail">
-      <div class="footrail-label">Footnotes ·</div>
-      <ol>
-        <li>"Sherlock" is the internal name for WeCP's session-integrity signal layer.</li>
-        <li>RFP citations sourced from WeCP sales pipeline, 2024–25.</li>
-        <li>Diagram conventions follow field-catalog plate notation: leader lines, gauges, and proof marks.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PLATE 06 · IMPRINT
-     ============================================================ -->
-<section class="plate" id="pl-06" data-plate-num="06" data-plate-name="Imprint" aria-labelledby="p06-h">
-  <div class="plate-body">
-    <header class="plate-head">
-      <div class="plate-num">
-        <span>PLATE</span>
-        <strong>06</strong>
-        <span>IMPRINT</span>
-      </div>
-      <div>
-        <div class="plate-kicker"><span class="em">PG.</span> 62 / 64 · INSIDE BACK COVER</div>
-        <div class="plate-title-sml">Currently. Contact. Imprint.</div>
-      </div>
-      <dl class="plate-spec">
-        <div><dt>Press</dt><dd>BLR</dd></div>
-        <div><dt>Edition</dt><dd>03 · 2026</dd></div>
-        <div><dt>Sheet</dt><dd>64 / 64</dd></div>
-        <div><dt>Closing</dt><dd>signed</dd></div>
-      </dl>
-    </header>
-
-    <div class="p06-title-block">
-      <h2 class="p06-title" id="p06-h">currently in <em>bengaluru</em><span class="stamp-here">stamped</span></h2>
-    </div>
-
-    <div class="p06-status">
-      <div class="status-card">
-        <div class="status-card-tag"><span class="blip"></span>STATUS</div>
-        <div class="status-card-val">Freelancing at MAV · taking calls for <em>full-time senior product roles.</em></div>
-      </div>
-      <div class="status-card">
-        <div class="status-card-tag">READING</div>
-        <div class="status-card-val">The Design of Everyday Things (again) · product teardowns · release notes worth stealing from.</div>
-      </div>
-      <div class="status-card">
-        <div class="status-card-tag">TINKERING</div>
-        <div class="status-card-val">Running model critique inside the Figma loop. Surprisingly good at finding the <em>copy lie.</em></div>
-      </div>
-    </div>
-
-    <div class="p06-contact">
-      <div class="contact-cta">
-        let's <em>talk —</em><br>
-        <a href="mailto:sahilpal55@gmail.com">sahilpal55@gmail.com</a>
-      </div>
-      <aside class="contact-card">
-        <div class="contact-card-tag"><span class="em">№ 06.A · </span>address block</div>
-        <address class="contact-card-addr">
-          SAHIL PAL<br>
-          SENIOR PRODUCT DESIGNER<br>
-          BENGALURU · KARNATAKA<br>
-          INDIA · 12.97°N
-        </address>
-        <div class="contact-card-links">
-          <a href="mailto:sahilpal55@gmail.com">Email</a>
-          <a href="https://linkedin.com/in/sahil-pal-design" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://sahilpal.framer.website" target="_blank" rel="noopener">Older portfolio</a>
+      <article class="exp-item reveal">
+        <div class="exp-dates">Sep 2022 - Nov 2023<br>Bengaluru</div>
+        <div>
+          <p class="exp-role">Full-time</p>
+          <h3>Appiness Interactive · UI/UX Designer</h3>
+          <ul>
+            <li>AgriApp redesign for tens of thousands of active farmers, -30% task steps</li>
+            <li>Manipal Hospitals community portal and admin dashboard</li>
+            <li>Built design systems that cut handoff back-and-forth by 40%</li>
+          </ul>
         </div>
-      </aside>
-    </div>
+      </article>
 
-    <div class="imprint">
-      <div>SET IN<br><strong>Archivo</strong><br><strong>Literata</strong><br><strong>Atkinson Hyperlegible</strong> · <strong>IBM Plex Mono</strong></div>
-      <div>PRINTED AT<br><strong>BLR press</strong><br>2026.05<br><span class="em">Single file</span> · no build step</div>
-      <div>WITH<br><strong>GSAP</strong> · ScrollTrigger<br>SVG plotter conventions<br>WCAG AA enforced</div>
-      <div>TAP THE ※<br>top-right · five times<br>for the <span class="em">colophon spread</span>.<br>The book closes there.</div>
+      <article class="exp-item reveal">
+        <div class="exp-dates">Jun 2022 - Aug 2022<br>Remote</div>
+        <div>
+          <p class="exp-role">Contract</p>
+          <h3>MemoNeet (MemoApps) · UI Designer</h3>
+          <ul>
+            <li>Usability reviews for NEET aspirants' learning flows</li>
+            <li>Developer-ready Figma handoffs</li>
+          </ul>
+        </div>
+      </article>
+
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About">
+    <p class="kicker">About</p>
+    <h2>Marketer who learned design</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I started in marketing: social media management at Pencilton and Hypercube, digital marketing at Webware.io. While doing that, I taught myself design, then earned a UX/UI design certification from the Interaction Design Foundation.</p>
+        <p>I built my own portfolio to prove the skill, and it got me my first design gig: a freelance contract with MemoNeet. From there came Appiness, then WeCP, and now MAV Consulting.</p>
+        <p>Today I work end-to-end: discovery, high-fidelity UI, design systems, and Webflow or Framer builds. I use AI tools like Figma Make and Google Stitch inside the design process, not as a substitute for it.</p>
+      </div>
+      <div class="about-meta reveal">
+        <div><strong>Education</strong>BCA, Rosary College of Commerce &amp; Arts, Goa</div>
+        <div><strong>Certification</strong>UX/UI Design &amp; Design Systems, Interaction Design Foundation</div>
+        <div><strong>Also certified</strong>Fundamentals of Digital Marketing, Google Digital Garage</div>
+        <div><strong>Basis</strong>Bengaluru, India · works with US and India clients</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" aria-label="Stack">
+    <p class="kicker">Stack</p>
+    <h2>Tools I use</h2>
+    <div class="stack-wrap">
+      <div class="stack-row reveal">
+        <span class="stack-name">Figma</span>
+        <span class="stack-desc">Design, prototyping, design systems, and Figma Make for early-stage AI ideation.</span>
+      </div>
+      <div class="stack-row reveal">
+        <span class="stack-name">Webflow</span>
+        <span class="stack-desc">Production builds with modular systems. 40+ pages shipped at WeCP.</span>
+      </div>
+      <div class="stack-row reveal">
+        <span class="stack-name">Framer</span>
+        <span class="stack-desc">Rapid marketing sites and interactive prototypes.</span>
+      </div>
+      <div class="stack-row reveal">
+        <span class="stack-name">HTML / CSS / JS</span>
+        <span class="stack-desc">Hand-coded interfaces, GSAP animation, WCAG AA accessibility.</span>
+      </div>
+      <div class="stack-row reveal">
+        <span class="stack-name">Research &amp; process</span>
+        <span class="stack-desc">Jobs-to-be-Done, heuristic evaluation, usability testing, journey mapping.</span>
+      </div>
+      <div class="stack-row reveal">
+        <span class="stack-name">AI in the loop</span>
+        <span class="stack-desc">Figma Make, Google Stitch, Framer AI, Claude for research and workflow design.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact">
+    <p class="kicker">Contact</p>
+    <p class="contact-line">Hiring for a product, AI, or UX role where design work ships? I'm available.</p>
+    <div class="contact-rows">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a class="contact-val" href="mailto:sahilpal55@gmail.com">sahilpal55@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a class="contact-val" href="https://linkedin.com/in/sahil-pal-design" target="_blank" rel="noopener">linkedin.com/in/sahil-pal-design</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Phone</span>
+        <a class="contact-val" href="tel:+919071298208">+91 90712 98208</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Resume</span>
+        <a class="contact-val" href="resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<!-- ============================================================
-     COLOPHON SPREAD — easter egg
-     ============================================================ -->
-<div class="colo" id="colo" role="dialog" aria-modal="true" aria-labelledby="colo-h" aria-hidden="true">
-  <article class="colo-spread">
-    <button class="colo-close" id="colo-close" aria-label="Close colophon">Esc · close</button>
-    <div class="colo-tag">※ colophon · inside back cover</div>
-    <h3 id="colo-h">an annual, <em>printed.</em></h3>
-    <p class="colo-sub">The publication you've just read — its papers, fonts, machinery, and the desk behind the desk.</p>
-    <dl class="colo-grid">
-      <dt>Paper</dt><dd>Field paper <em>#F2E5C7</em> · simulated via SVG fractal-noise overlay</dd>
-      <dt>Ink</dt><dd>Blueprint navy <em>#102638</em> · oxidized rust <em>#D64B24</em> · plotter green · brass markers</dd>
-      <dt>Type</dt><dd><em>Archivo</em> (display) · <em>Literata</em> italic (pull-quotes) · <em>Atkinson Hyperlegible</em> (body) · <em>IBM Plex Mono</em> (annotations)</dd>
-      <dt>Machinery</dt><dd>GSAP + ScrollTrigger · inline SVG plotter conventions · no build step · ~3.2k lines of one HTML file</dd>
-      <dt>Editor</dt><dd>S. Pal · Bengaluru · two weekends · 2026</dd>
-      <dt>With thanks</dt><dd>To the less glamorous parts: messy sketches, review comments, shipped constraints, and the first draft that deserved to be deleted.</dd>
-      <dt>References</dt><dd>Mitsubishi Electric annual, 1985 · Wim Crouwel for Stedelijk · IDEA Magazine Japan, issues 200–230</dd>
-    </dl>
-    <p class="colo-foot">Thank you for reading to the inside back cover. If you're hiring or just curious — <span class="v">sahilpal55@gmail.com</span>.</p>
-  </article>
-</div>
-
-<!-- ============================================================
-     LIBRARIES & SCRIPT
-     ============================================================ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<footer>
+  <span>Sahil Pal · Product Designer</span>
+  <span>Bengaluru, India · 2026</span>
+</footer>
 
 <script>
 (function(){
-  'use strict';
-  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const TOUCH = matchMedia('(hover: none)').matches;
-
-  /* ------------------------------------------------------------
-     BENGALURU TIME · live
-     ------------------------------------------------------------ */
-  function updateTime(){
-    const el = document.getElementById('ist-time');
-    if (!el) return;
-    const fmt = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Asia/Kolkata',
-      hour: '2-digit', minute: '2-digit', hour12: false
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if (REDUCED || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-    el.textContent = fmt.format(new Date());
-  }
-  updateTime();
-  setInterval(updateTime, 30000);
-
-  /* ------------------------------------------------------------
-     PLATE INDICATOR · IntersectionObserver
-     ------------------------------------------------------------ */
-  const plateNum = document.getElementById('plate-num');
-  const plateName = document.getElementById('plate-name');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.intersectionRatio > 0.32) {
-        const n = e.target.getAttribute('data-plate-num');
-        const name = e.target.getAttribute('data-plate-name');
-        if (plateNum.textContent !== '№ ' + n) {
-          plateNum.textContent = '№ ' + n;
-          plateName.style.opacity = '0';
-          setTimeout(() => { plateName.textContent = name; plateName.style.opacity = '1'; }, 160);
-        }
-      }
-    });
-  }, { threshold: [0.32, 0.6] });
-  document.querySelectorAll('section[data-plate-num]').forEach(s => io.observe(s));
-
-  /* ------------------------------------------------------------
-     GAUGES · needle stroke + arc stroke-draw + number roll
-     ------------------------------------------------------------ */
-  function rollCounter(el, target, duration){
-    const pad = parseInt(el.getAttribute('data-pad') || '0', 10);
-    const fmt = n => String(n).padStart(pad, '0');
-    if (REDUCED) { el.textContent = fmt(target); return; }
-    const start = performance.now();
-    const settle = duration * 0.75;
-    function tick(now){
-      const elapsed = now - start;
-      if (elapsed < settle) {
-        const t = elapsed / settle;
-        const biased = Math.round(target * t + (Math.random() * 99) * (1 - t));
-        el.textContent = fmt(Math.min(99, Math.max(0, biased)));
-        requestAnimationFrame(tick);
-      } else if (elapsed < duration) {
-        const t = (elapsed - settle) / (duration - settle);
-        const eased = 1 - Math.pow(1 - t, 3);
-        const v = Math.round(target * (0.85 + 0.15 * eased) + (Math.random() * 3) * (1 - eased));
-        el.textContent = fmt(Math.min(target + 2, v));
-        requestAnimationFrame(tick);
-      } else {
-        el.textContent = fmt(target);
-        el.style.display = 'inline-block';
-        el.style.transition = 'transform .3s cubic-bezier(.34,1.56,.64,1)';
-        el.style.transform = 'scale(1.15)';
-        setTimeout(() => { el.style.transform = 'scale(1)'; }, 220);
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function animateGauge(svg){
-    const angle = parseFloat(svg.getAttribute('data-target-angle') || '0');
-    const needle = svg.querySelector('.gauge-needle');
-    const arc = svg.querySelector('path.gauge-arc');
-    if (!needle) return;
-    if (REDUCED) {
-      needle.style.transform = `rotate(${angle - 90}deg)`;
-      if (arc) arc.style.strokeDashoffset = String(157 - Math.abs(angle) * (157/180) * 0.6);
-      return;
-    }
-    // animate arc fill proportional
-    if (arc) {
-      const total = 157;
-      const fillPct = Math.min(1, Math.abs(angle) / 90);
-      requestAnimationFrame(() => {
-        arc.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.34,1,.4,1)';
-        arc.style.strokeDashoffset = String(total - total * fillPct);
-      });
-    }
-    // tick-tick needle steps
-    const steps = 12;
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      const t = i / steps;
-      const eased = 1 - Math.pow(1 - t, 2.4);
-      const cur = angle * eased;
-      needle.style.transition = 'transform 70ms linear';
-      needle.style.transform = `rotate(${cur - 90}deg)`;
-      if (i >= steps) {
-        clearInterval(interval);
-        needle.style.transition = 'transform .4s cubic-bezier(.34,1.56,.64,1)';
-        needle.style.transform = `rotate(${angle - 90}deg)`;
-      }
-    }, 90);
-  }
-
-  const gaugeIO = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateGauge(e.target);
-        // counter inside same gauge container
-        const wrap = e.target.closest('.gauge');
-        if (wrap) {
-          const c = wrap.querySelector('.counter');
-          if (c) {
-            const target = parseInt(c.getAttribute('data-count'), 10);
-            setTimeout(() => rollCounter(c, target, 1800), 600);
-          }
-        }
-        gaugeIO.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.45 });
-  document.querySelectorAll('.gauge-svg').forEach(el => gaugeIO.observe(el));
-
-  /* ------------------------------------------------------------
-     SHERLOCK · scroll-pinned step lighting
-     ------------------------------------------------------------ */
-  if (window.gsap && window.ScrollTrigger && window.innerWidth > 1100 && !REDUCED) {
-    gsap.registerPlugin(ScrollTrigger);
-    const wiring = document.getElementById('wiring');
-    const steps = document.querySelectorAll('.p03-step');
-    steps.forEach(step => {
-      ScrollTrigger.create({
-        trigger: step,
-        start: 'top 65%',
-        end: 'bottom 35%',
-        onEnter: () => activateStep(step),
-        onEnterBack: () => activateStep(step),
-      });
-    });
-    function activateStep(step){
-      document.querySelectorAll('.p03-step').forEach(s => s.classList.remove('active'));
-      step.classList.add('active');
-      document.querySelectorAll('.w-edge').forEach(e => e.classList.remove('live'));
-      document.querySelectorAll('.w-node-bg').forEach(e => e.classList.remove('live'));
-      const edges = (step.getAttribute('data-edges') || '').split(',').filter(Boolean);
-      const nodes = (step.getAttribute('data-nodes') || '').split(',').filter(Boolean);
-      edges.forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('live'); });
-      nodes.forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('live'); });
-      // pulse
-      const pulse = document.querySelector('.w-pulse');
-      if (pulse && window.gsap) {
-        gsap.fromTo(pulse,
-          { attr: { r: 6 }, opacity: 0.7 },
-          { attr: { r: 200 }, opacity: 0, duration: 1.6, ease: 'power2.out', overwrite: true }
-        );
-      }
-      // outcome stamp
-      if (step.getAttribute('data-outcome') === '1') {
-        wiring.classList.add('outcome');
-      }
-    }
-  }
-
-  /* ------------------------------------------------------------
-     PLOTTER TRACE · stroke-draw on scroll into view
-     ------------------------------------------------------------ */
-  const traceLine = document.getElementById('trace-line');
-  if (traceLine) {
-    const traceIO = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          traceLine.classList.add('draw');
-          // stagger nodes
-          const nodes = e.target.querySelectorAll('.trace-node');
-          nodes.forEach((n, i) => {
-            setTimeout(() => n.classList.add('live'), 400 + i * 220);
-          });
-          traceIO.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    traceIO.observe(document.querySelector('.plotter-trace'));
-  }
-
-  /* ------------------------------------------------------------
-     WORK ROW · expand
-     ------------------------------------------------------------ */
-  document.querySelectorAll('.work-row').forEach(row => {
-    function toggle(){
-      const open = row.classList.toggle('open');
-      row.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-    }
-    row.addEventListener('click', e => {
-      if (e.target.closest('a')) return;
-      toggle();
-    });
-    row.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-  });
-
-  /* ------------------------------------------------------------
-     ASK SAHIL · plotter-draw response
-     ------------------------------------------------------------ */
-  const QA = {
-    philosophy: { pg: 12, label: 'design philosophy', a: "I design <em>outcomes</em>, not interfaces. The pixels are downstream of a clear bet about what should change in the user's day, the funnel, or the business. If I can't write that bet in one sentence before opening Figma, the design isn't ready." },
-    ai:         { pg: 14, label: 'AI in the workflow', a: "AI is a <em>sparring partner</em>, not a ghost-writer. Figma Make and Google Stitch help me diverge in an hour what used to take a week. Model critique catches the weak argument and the copy lie. Then I throw the scaffolding away and rebuild in Figma with my own tokens — the craft still has to be mine." },
-    available:  { pg: 16, label: 'availability', a: "Yes. I'm freelancing at MAV right now and taking calls for senior product roles — <em>remote-first</em>, or hybrid in Bengaluru. Send a brief or just say hi: sahilpal55@gmail.com." },
-    proudest:   { pg: 18, label: 'proudest project', a: "<em>Sherlock</em> at WeCP — the AI interview-integrity tool. Co-designed end-to-end, launched on Product Hunt, adopted by every paying customer. It's the project that proved a sole designer can own marketing and product at the same time." },
-    weakness:   { pg: 20, label: 'biggest weakness', a: "I over-index on shipping. I'll close a polish loop and ship instead of holding one more day for the perfect version. I've gotten better since the two-round review I introduced at MAV — but I still feel restless when something sits in Figma." },
-    remote:     { pg: 22, label: 'remote work', a: "Strong yes. I've worked remote-first since 2022 — solo designer at WeCP for two years across multiple time zones. I run my own structured review process so async actually moves, instead of becoming weekly meetings." },
-    salary:     { pg: 24, label: 'compensation', a: "Range I'm calibrated around: <em>₹15–25 LPA</em> for India full-time, or <em>$40–70K USD</em> for remote international. Flexible for the right team and stage." },
-    stack:      { pg: 26, label: 'stack', a: "Figma · Webflow · Framer · Lottie · GSAP for interactions · Figma Make and model critique in the ideation loop · Notion for documentation. WCAG AA is non-negotiable across all of it." },
-    teams:      { pg: 28, label: 'teams', a: "Solo designer when needed (two years at WeCP across product and marketing), embedded in cross-functional product teams (Appiness, Manipal Hospitals), and now freelance with founders (MAV). Equally comfortable presenting to a CEO or a junior engineer." },
-    location:   { pg: 30, label: 'location', a: "<em>Bengaluru, India</em> — IST. Open to anywhere remote. I've designed for users from rural Karnataka to enterprise recruiters in the US in the same week." },
-    journey:    { pg: 32, label: 'journey', a: "Marketing roles 2019–2022 (digital, social, growth). Formalised design through IDF in 2022. Product designer at Appiness 2022–2023. Sole designer at WeCP 2023–2025. Freelance at MAV from 2026. Through-line: I think in funnels." },
-    weekend:    { pg: 34, label: 'weekends', a: "Reading something not-design (lately: behavioural econ), sketching ideas that won't ship, and walking around Bengaluru. The portfolio you're on was built across two of them." },
-    name:       { pg: 36, label: 'who is Sahil', a: "Sahil Pal — <em>product designer, Bengaluru</em>. I design end-to-end: research, IA, wireframes, high-fidelity, prototype. I think in funnels and outcomes, not just pixels. This portfolio is the filed, honest version of how I work." },
-    current:    { pg: 38, label: 'current work', a: "Freelancing as a <em>Webflow Developer &amp; Visual Designer at MAV Consulting Group</em> — US B2B tech consulting, remote since Jan 2026. Sole designer: brand overhaul, an AI-powered PropTech CRM, and 6+ Webflow landing pages. Also taking senior product-design calls." },
-    skills:     { pg: 40, label: 'skills', a: "End-to-end product design, design systems &amp; component libraries, UX research (interviews, personas, journey maps), responsive web and mobile, brand identity, e-commerce and B2B SaaS UI. Verticals: healthcare, fintech, real estate, edtech. Tools: Figma, Webflow, Framer, Illustrator." },
-    experience: { pg: 42, label: 'experience', a: "Formal design since 2022 (IDF-certified, design thinking). UI/UX designer at <em>Appiness Interactive</em> 2022–2023 across 6+ client products. Sole product designer at <em>WeCP</em> 2023–2025 — shipped Sherlock, redesigned the marketing site for a 20–30% session uplift. Freelance at MAV from 2026." },
-    contact:    { pg: 44, label: 'contact', a: "Easiest by email: <em>sahilpal55@gmail.com</em>. LinkedIn: linkedin.com/in/sahil-pal-design. Open to senior product roles — remote-first, or hybrid in Bengaluru." }
-  };
-
-  const desk = {
-    list:    document.getElementById('desk-list'),
-    form:    document.getElementById('desk-form'),
-    input:   document.getElementById('desk-input'),
-    panel:   document.getElementById('desk-response'),
-    filenum: document.getElementById('desk-filenum'),
-    respq:   document.getElementById('desk-respq'),
-    resptxt: document.getElementById('desk-resptext'),
-    stamp:   document.getElementById('desk-stamp'),
-    status:  document.getElementById('desk-status'),
-  };
-
-  function tokenize(html){
-    const out = []; let i = 0;
-    while (i < html.length) {
-      if (html[i] === '<') {
-        const end = html.indexOf('>', i);
-        if (end !== -1) { out.push({type:'tag', value: html.slice(i, end+1)}); i = end+1; continue; }
-      }
-      out.push({type:'char', value: html[i]}); i++;
-    }
-    return out;
-  }
-
-  function plotterType(el, html, done){
-    if (REDUCED) { el.innerHTML = html; if (done) done(); return; }
-    el.innerHTML = '<span class="cursor"></span>';
-    const cursor = el.querySelector('.cursor');
-    const tokens = tokenize(html);
-    let i = 0;
-    const speed = 14;
-    function step(){
-      if (i >= tokens.length) {
-        cursor.remove();
-        if (done) done();
-        return;
-      }
-      const t = tokens[i++];
-      if (t.type === 'tag') cursor.insertAdjacentHTML('beforebegin', t.value);
-      else cursor.insertAdjacentText('beforebegin', t.value);
-      setTimeout(step, t.type === 'tag' ? 0 : speed);
-    }
-    step();
-  }
-
-  let fileCounter = 0;
-  function fileQuery(id, qLabel){
-    fileCounter++;
-    const item = QA[id];
-    const label = item ? item.label : qLabel || '(free query)';
-    const pg = item ? String(item.pg).padStart(2, '0') : '—';
-    const answer = item ? item.a : null;
-
-    desk.panel.classList.add('active');
-    desk.status.textContent = 'PLOTTER ENGAGED';
-    desk.filenum.textContent = `03.${String(fileCounter).padStart(2, '0')} · pg.${pg}`;
-    desk.stamp.textContent = 'UNSTAMPED';
-    desk.respq.textContent = `Q · ${label.toUpperCase()}`;
-
-    // Highlight the desk-q button if matched
-    document.querySelectorAll('.desk-q').forEach(b => b.classList.remove('active'));
-    const match = document.querySelector(`.desk-q[data-q="${id}"]`);
-    if (match) match.classList.add('active');
-
-    const body = answer || answerFallback(qLabel);
-    plotterType(desk.resptxt, body, () => {
-      desk.status.textContent = 'FILE READY';
-      desk.stamp.textContent = '✦ STAMPED · APPROVED';
-    });
-  }
-
-  function answerFallback(q){
-    return "I don't have a filed answer for that one yet — and I'd rather not make it up. The short version: I'm <em>Sahil</em>, a product designer in Bengaluru, currently freelancing with MAV Consulting Group. Try asking about the work, my process, tools, or how to reach me — or write to <em>sahilpal55@gmail.com</em> for the long version.";
-  }
-
-  function fuzzyMatch(q){
-    const s = q.toLowerCase();
-    const map = [
-      { id: 'name',       keys: ['who is','who are','about you','introduce','your name','yourself','name'] },
-      { id: 'current',    keys: ['currently','current','now','currently work','working on','working at','working now','present','these days','mav','today'] },
-      { id: 'skills',     keys: ['skills','skill','good at','capable','proficient','expert','strengths'] },
-      { id: 'experience', keys: ['experience','years','career','background','worked at','worked for','previous','past'] },
-      { id: 'contact',    keys: ['contact','reach','email','linkedin','hire me','get in touch','message','connect'] },
-      { id: 'philosophy', keys: ['philosophy','approach','believe','principle','process','method'] },
-      { id: 'ai',         keys: ['ai','llm','claude','chatgpt','gpt','figma make','stitch','machine learning'] },
-      { id: 'available',  keys: ['available','hire','hiring','open','looking for','role','opportunity'] },
-      { id: 'proudest',   keys: ['proud','best','favorite','favourite','sherlock','highlight'] },
-      { id: 'weakness',   keys: ['weak','flaw','bad','struggle','improve'] },
-      { id: 'remote',     keys: ['remote','wfh','async','timezone'] },
-      { id: 'salary',     keys: ['salary','pay','compensation','rate','ctc','lpa','usd'] },
-      { id: 'stack',      keys: ['stack','tools','tooling','software','figma','webflow','framer'] },
-      { id: 'teams',      keys: ['team','manage','solo','collab','cross-functional'] },
-      { id: 'location',   keys: ['where','location','based','bengaluru','bangalore','india'] },
-      { id: 'journey',    keys: ['journey','path','story','background','become','became','started','marketer','marketing','origin'] },
-      { id: 'weekend',    keys: ['weekend','hobby','outside','personal','life','fun'] }
-    ];
-
-    const tokens = s.replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(t => t.length > 2);
-
-    let bestId = null, bestScore = 0, bestPos = Infinity;
-    for (const entry of map) {
-      let score = 0, pos = Infinity;
-      for (const k of entry.keys) {
-        if (s.includes(k)) {
-          const p = s.indexOf(k);
-          if (p < pos) pos = p;
-          score += k.includes(' ') ? 6 : 4;
-        }
-      }
-      for (const k of entry.keys) {
-        if (k.includes(' ')) continue;
-        for (const t of tokens) {
-          if (k === t) {
-            score += 3;
-            const p = s.indexOf(t);
-            if (p < pos) pos = p;
-          } else if (t.length >= 4 && k.length >= 4 && Math.abs(t.length - k.length) <= 2 &&
-                     (t.startsWith(k) || k.startsWith(t))) {
-            score += 2;
-          }
-        }
-      }
-      if (score > bestScore || (score === bestScore && score > 0 && pos < bestPos)) {
-        bestScore = score; bestId = entry.id; bestPos = pos;
-      }
-    }
-    return bestScore >= 4 ? bestId : null;
-  }
-
-  desk.list.addEventListener('click', e => {
-    const btn = e.target.closest('.desk-q');
-    if (!btn) return;
-    const id = btn.getAttribute('data-q');
-    fileQuery(id);
-  });
-  desk.form.addEventListener('submit', e => {
-    e.preventDefault();
-    const v = desk.input.value.trim();
-    if (!v) return;
-    desk.input.value = '';
-    const matched = fuzzyMatch(v);
-    if (matched) fileQuery(matched);
-    else fileQuery('_free', v);
-  });
-
-  // "?" keyboard shortcut → jump to desk + focus
-  document.addEventListener('keydown', e => {
-    if (e.key === '?' && document.activeElement.tagName !== 'INPUT') {
-      e.preventDefault();
-      document.getElementById('pl-03').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
-      setTimeout(() => desk.input.focus(), REDUCED ? 0 : 600);
-    }
-  });
-
-  /* ------------------------------------------------------------
-     ARCHIVAL MARK · 5-click colophon
-     ------------------------------------------------------------ */
-  const mark = document.getElementById('archival-mark');
-  const colo = document.getElementById('colo');
-  const coloClose = document.getElementById('colo-close');
-  let clicks = 0, clickTimer = null;
-
-  function openColo(){
-    colo.classList.add('open');
-    colo.setAttribute('aria-hidden', 'false');
-    coloClose.focus();
-    document.body.style.overflow = 'hidden';
-  }
-  function closeColo(){
-    colo.classList.remove('open');
-    colo.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    mark.focus();
-  }
-  mark.addEventListener('click', () => {
-    clicks++;
-    clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => clicks = 0, 1500);
-    if (clicks >= 5) { clicks = 0; openColo(); }
-    else if (clicks >= 3) {
-      mark.style.transform = `scale(${1 + (clicks-2) * 0.15})`;
-      mark.style.background = `color-mix(in srgb, var(--gold) ${(clicks-2) * 20}%, transparent)`;
-      setTimeout(() => { mark.style.transform = ''; mark.style.background = ''; }, 250);
-    }
-  });
-  coloClose.addEventListener('click', closeColo);
-  colo.addEventListener('click', e => { if (e.target === colo) closeColo(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && colo.classList.contains('open')) closeColo(); });
-
-  /* ------------------------------------------------------------
-     SCROLL REVEALS · plotter-assembly stagger
-     ------------------------------------------------------------ */
-  if (window.gsap && window.ScrollTrigger && !REDUCED) {
-    gsap.utils.toArray('.plate-head, .p01-title, .p02-title, .p03-title, .p03-lede, .p04-intro, .p05-intro, .p06-title, .p06-status, .p06-contact, .stamp-row, .status-card, .work-row, .p02-pull, .desk').forEach(el => {
-      gsap.fromTo(el,
-        { y: 16, opacity: 0 },
-        {
-          y: 0, opacity: 1,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-        }
-      );
-    });
-  }
-
+  }, {threshold: 0.12});
+  targets.forEach(function(t){ io.observe(t); });
 })();
 </script>
+
 </body>
 </html>
