@@ -39,7 +39,6 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-html.lenis-active{scroll-behavior:auto;}
 body{
   background:var(--bg);color:var(--ink);
   font-family:var(--font);font-size:17px;line-height:1.65;
@@ -817,8 +816,7 @@ footer{
   /* lenis smooth scroll, desktop only */
   if (!REDUCED && DESKTOP && window.Lenis) {
     var startLenis = function(){
-      document.documentElement.classList.add('lenis-active');
-      lenis = new Lenis({lerp: 0.18, wheelMultiplier: 1});
+      lenis = new Lenis({lerp: 0.5, wheelMultiplier: 1.35});
       if (window.gsap && window.ScrollTrigger) {
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.lagSmoothing(0);
