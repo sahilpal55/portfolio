@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sahil Pal · Product Designer</title>
 <meta name="description" content="Product designer for AI and B2B SaaS. 4 years from discovery to shipped interface. Currently designing an AI-powered real estate CRM at MAV Consulting.">
-<meta property="og:title" content="Sahil Pal · Product Designer">
+<meta property="og:title" content="Sahil Pal · Product, UI UX, Webflow Designer for AI B2B SaaS">
+<meta property="og:site_name" content="Sahil Pal · Product, UI UX, Webflow Designer for AI B2B SaaS">
 <meta property="og:description" content="Product designer for AI and B2B SaaS. 4 years from discovery to shipped interface. Bengaluru, open to full-time.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sahilpal55.github.io/portfolio/">
@@ -296,41 +297,44 @@ html.js .facts-card.in:hover{transform:translateY(-3px) scale(1.02);box-shadow:v
 .tl-node.odd .tl-card{text-align:left;padding-left:0;padding-right:24px;order:1;}
 .tl-node.odd .tl-mid{order:2;}
 
-/* ============ projects bento ============ */
-.bento{
-  display:grid;grid-template-columns:repeat(12,1fr);
-  grid-auto-rows:minmax(180px,auto);gap:20px;
-}
-.proj-card{
-  position:relative;display:flex;flex-direction:column;justify-content:space-between;
-  background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:28px;box-shadow:var(--shadow-1);
+/* ============ projects gallery ============ */
+.project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;}
+.project-card{
+  min-width:0;display:flex;flex-direction:column;overflow:hidden;
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-1);
   transition:box-shadow .4s var(--ease),transform .4s var(--ease),border-color .4s var(--ease);
 }
-.proj-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px);border-color:var(--accent-soft);}
-.proj-card.featured{background:var(--bg-tint);}
-.proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.proj-tag{
-  font-size:12px;font-weight:500;color:var(--accent-ink);
-  background:var(--accent-soft);border-radius:999px;padding:3px 10px;
+.project-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px);border-color:var(--accent-soft);}
+.project-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg-tint);border-bottom:1px solid var(--line);}
+.project-media img,.project-media video{width:100%;height:100%;display:block;object-fit:cover;object-position:top;}
+.project-media video{background:#fff;}
+.project-video-fallback{display:none!important;position:absolute;inset:0;}
+.project-media.video-failed .project-video{display:none;}
+.project-media.video-failed .project-video-fallback{display:block!important;}
+.media-label{
+  position:absolute;left:16px;bottom:16px;padding:5px 10px;border-radius:999px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
 }
-.proj-card h3{font-size:20px;margin-bottom:8px;}
-.proj-card p{font-size:15px;}
-.proj-link{
-  margin-top:20px;font-size:14.5px;font-weight:500;
-  display:inline-flex;align-items:center;gap:6px;
-}
-.proj-link .arr{transition:transform .3s var(--ease);}
-.proj-card:hover .proj-link .arr{transform:translateX(4px);}
-.p-1{grid-column:span 7;}.p-2{grid-column:span 5;}
-.p-3{grid-column:span 5;}.p-4{grid-column:span 4;}.p-5{grid-column:span 3;}
-.p-more{
-  grid-column:span 12;display:flex;align-items:center;justify-content:space-between;
-  background:var(--bg-tint);border:1px solid var(--line);border-radius:var(--r-md);
-  padding:20px 28px;font-size:15px;color:var(--ink-2);
-  transition:border-color .3s var(--ease),box-shadow .3s var(--ease);
-}
-.p-more:hover{border-color:var(--accent);box-shadow:var(--shadow-2);text-decoration:none;}
+.project-body{height:100%;display:flex;flex-direction:column;align-items:flex-start;padding:24px;}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px;}
+.project-tag{font-size:12px;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:3px 10px;}
+.project-card h3{font-size:clamp(19px,2vw,24px);margin-bottom:9px;}
+.project-card p{font-size:15px;line-height:1.55;}
+.project-link{margin-top:auto;padding-top:20px;font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
+.project-link .arr{transition:transform .3s var(--ease);}
+.project-card:hover .project-link .arr{transform:translateX(4px);}
+.project-featured{grid-column:span 7;}.project-mav{grid-column:span 5;}.project-wide{grid-column:span 12;}.project-half{grid-column:span 6;}.project-small{grid-column:span 4;}
+.project-featured .project-media{aspect-ratio:16/9;}
+.project-mav .project-media{aspect-ratio:16/11;}
+.project-wide .project-media{aspect-ratio:16/9;}
+.project-staged{grid-column:span 4;background:var(--bg-tint);}
+.project-staged-half{grid-column:span 6;}
+.project-staged .project-body{min-height:220px;justify-content:center;}
+.project-status{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
+.project-staged h3{max-width:260px;}
+.project-staged p{max-width:290px;}
+.project-note{grid-column:span 12;padding:20px 24px;border-radius:var(--r-md);background:var(--bg-tint);border:1px solid var(--line);font-size:14px;color:var(--ink-2);}
 
 /* ============ stack ============ */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
@@ -443,8 +447,10 @@ footer{
   nav.open .nav-toggle span:nth-child(1){transform:translateY(9px) rotate(45deg);}
   nav.open .nav-toggle span:nth-child(2){opacity:0;}
   nav.open .nav-toggle span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
-  .bento{grid-template-columns:1fr;grid-auto-rows:auto;}
-  .p-1,.p-2,.p-3,.p-4,.p-5,.p-more{grid-column:span 1;}
+  .project-grid{grid-template-columns:1fr;gap:16px;}
+  .project-featured,.project-mav,.project-wide,.project-half,.project-small,.project-staged,.project-staged-half,.project-note{grid-column:span 1;}
+  .project-body{padding:20px;}
+  .project-staged .project-body{min-height:0;}
   .stack-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
   .stack-card{min-height:112px;padding:18px;}
   .contact-row{flex-direction:column;align-items:flex-start;gap:6px;}
@@ -650,58 +656,76 @@ footer{
     <p class="kicker rv" data-d="0">Projects</p>
     <h2 class="rv" data-d="1">Work that <em class="serif">shipped</em></h2>
 
-    <div class="bento">
-
-      <article class="proj-card featured p-1 rv" data-d="2">
-        <div>
-          <div class="proj-tags"><span class="proj-tag">PropTech</span><span class="proj-tag">AI</span></div>
-          <h3>AI-powered real estate CRM</h3>
-          <p>Sole designer from brand to product. Brand and website overhaul, six landing pages with interactive calculators, 19-page decks presented in live webinars.</p>
+    <div class="project-grid">
+      <article class="project-card project-featured rv" data-d="2" data-project="autoreport">
+        <div class="project-media">
+          <video class="project-video" muted loop autoplay playsinline preload="metadata" poster="Project files/autoreport-poster.png" aria-label="Preview of the AutoReport privacy-first reporting app">
+            <source src="Project files/autoreport-preview.m4v" type="video/mp4">
+          </video>
+          <img class="project-video-fallback" src="Project files/autoreport-poster.png" alt="AutoReport's privacy-first reporting app interface" loading="lazy" decoding="async">
+          <span class="media-label">Product preview</span>
         </div>
-        <a class="proj-link" href="https://mavconsultinggroup.com" target="_blank" rel="noopener">mavconsultinggroup.com <span class="arr">→</span></a>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">AI reporting</span><span class="project-tag">Privacy-first</span></div>
+          <h3>AutoReport</h3>
+          <p>A privacy-first reporting app that runs on your own instance, with local AI inference and no required account.</p>
+          <a class="project-link" href="projects/autoreport.html">View case study <span class="arr">→</span></a>
+        </div>
       </article>
 
-      <article class="proj-card p-2 rv" data-d="3">
-        <div>
-          <div class="proj-tags"><span class="proj-tag">AI hiring</span><span class="proj-tag">B2B SaaS</span></div>
-          <h3>Sherlock · AI interview platform</h3>
-          <p>Co-designed from concept to Product Hunt launch as the team's sole designer.</p>
+      <article class="project-card project-mav rv" data-d="3" data-project="mav-turnki">
+        <div class="project-media">
+          <video class="project-video" muted loop autoplay playsinline preload="metadata" poster="Project files/Screenshot 2026-08-12 at 1.06.29 PM.png" aria-label="Preview of MAV Consulting's property management CRM website">
+            <source src="Project files/mav-preview.m4v" type="video/mp4">
+          </video>
+          <img class="project-video-fallback" src="Project files/Screenshot 2026-08-12 at 1.06.29 PM.png" alt="MAV Consulting property management CRM with AI agent integrations" loading="lazy" decoding="async">
+          <span class="media-label">Product preview</span>
         </div>
-        <a class="proj-link" href="https://wecreateproblems.com" target="_blank" rel="noopener">wecreateproblems.com <span class="arr">→</span></a>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">PropTech</span><span class="project-tag">AI</span></div>
+          <h3>MAV Consulting · CRM ecosystem</h3>
+          <p>Brand, website, and an AI-powered property-management CRM. Turnki.ai will join this evolving product story.</p>
+          <a class="project-link" href="projects/mav-turnki.html">View case study <span class="arr">→</span></a>
+        </div>
       </article>
 
-      <article class="proj-card p-3 rv" data-d="3">
-        <div>
-          <div class="proj-tags"><span class="proj-tag">Marketing site</span><span class="proj-tag">Webflow</span></div>
-          <h3>WeCP marketing site redesign</h3>
-          <p>Session duration and lead conversion up 20-30%. 40+ pages on a modular system.</p>
+      <article class="project-card project-wide rv" data-d="4" data-project="wecp-sherlock">
+        <div class="project-media">
+          <video class="project-video" muted loop autoplay playsinline preload="metadata" poster="Project files/wecp-poster.png" aria-label="Preview of the WeCP and Sherlock marketing work">
+            <source src="Project files/wecp-preview.m4v" type="video/mp4">
+          </video>
+          <img class="project-video-fallback" src="Project files/wecp-poster.png" alt="WeCP website section explaining AI interviewer pain points" loading="lazy" decoding="async">
+          <span class="media-label">Site preview</span>
         </div>
-        <a class="proj-link" href="https://wecreateproblems.com" target="_blank" rel="noopener">View site <span class="arr">→</span></a>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">B2B SaaS</span><span class="project-tag">Webflow</span><span class="project-tag">AI hiring</span></div>
+          <h3>WeCP &amp; Sherlock · marketing design</h3>
+          <p>Sole designer across marketing and product for two years. Designed and built 40+ responsive Webflow pages spanning landing pages, product launches, blogs, resources, custom campaigns, and legacy redesigns on a modular system. Co-designed Sherlock's marketing experience through its Product Hunt launch. The redesign lifted session duration and lead conversion by 20-30%, while reusable components reduced build time by 40%.</p>
+          <a class="project-link" href="projects/wecp-sherlock.html">View case study <span class="arr">→</span></a>
+        </div>
       </article>
 
-      <article class="proj-card p-4 rv" data-d="4">
-        <div>
-          <div class="proj-tags"><span class="proj-tag">AgriTech</span><span class="proj-tag">Mobile</span></div>
+      <article class="project-card project-staged project-staged-half rv" data-d="6" data-project="agriapp">
+        <div class="project-body">
+          <span class="project-status">Visual case study in progress</span>
+          <div class="project-tags"><span class="project-tag">AgriTech</span><span class="project-tag">Mobile</span></div>
           <h3>AgriApp redesign</h3>
-          <p>JTBD framework redesign for tens of thousands of farmers. Task steps down 30%.</p>
+          <p>JTBD-led mobile redesign for tens of thousands of farmers. Key task steps down 30%.</p>
+          <a class="project-link" href="https://www.behance.net/gallery/177356281" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
         </div>
-        <a class="proj-link" href="https://www.behance.net/gallery/177356281" target="_blank" rel="noopener">Behance <span class="arr">→</span></a>
       </article>
 
-      <article class="proj-card p-5 rv" data-d="5">
-        <div>
-          <div class="proj-tags"><span class="proj-tag">Healthcare</span></div>
+      <article class="project-card project-staged project-staged-half rv" data-d="7" data-project="manipal">
+        <div class="project-body">
+          <span class="project-status">Visual case study in progress</span>
+          <div class="project-tags"><span class="project-tag">Healthcare</span></div>
           <h3>Manipal Hospitals portal</h3>
-          <p>Community portal and admin dashboard for India's largest hospital network.</p>
+          <p>Community portal and admin dashboard for one of India's largest hospital networks.</p>
+          <a class="project-link" href="https://www.behance.net/gallery/160547789" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
         </div>
-        <a class="proj-link" href="https://www.behance.net/gallery/160547789" target="_blank" rel="noopener">Behance <span class="arr">→</span></a>
       </article>
 
-      <a class="p-more rv" data-d="5" href="https://www.behance.net/sahilpal" target="_blank" rel="noopener">
-        <span>More work, experiments, and process notes on Behance</span>
-        <span class="arr">→</span>
-      </a>
-
+      <p class="project-note rv" data-d="7">Each project moves into the visual gallery as approved screenshots, prototypes, or recordings become available.</p>
     </div>
   </section>
 
@@ -765,6 +789,16 @@ footer{
   <span>Bengaluru, India · 2026</span>
 </footer>
 
+<script type="application/json" id="project-media-manifest">
+{
+  "autoreport":{"status":"ready","media":[{"type":"video","src":"Project files/autoreport-preview.m4v","poster":"Project files/autoreport-poster.png","alt":"AutoReport's privacy-first reporting app interface"}],"destination":"projects/autoreport.html"},
+  "mav-turnki":{"status":"ready","media":[{"type":"video","src":"Project files/mav-preview.m4v","poster":"Project files/Screenshot 2026-08-12 at 1.06.29 PM.png","alt":"MAV Consulting property management CRM with AI agent integrations"}],"destination":"projects/mav-turnki.html"},
+  "wecp-sherlock":{"status":"ready","media":[{"type":"video","src":"Project files/wecp-preview.m4v","poster":"Project files/wecp-poster.png","alt":"WeCP website section explaining AI interviewer pain points"}],"destination":"projects/wecp-sherlock.html"},
+  "agriapp":{"status":"awaiting-approved-media","media":[],"destination":"https://www.behance.net/gallery/177356281"},
+  "manipal":{"status":"awaiting-approved-media","media":[],"destination":"https://www.behance.net/gallery/160547789"}
+}
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
@@ -777,6 +811,20 @@ footer{
   var hero = document.getElementById('hero');
   var progress = document.getElementById('progress');
   var ghost = document.querySelector('.about-ghost');
+  var projectMedia = JSON.parse(document.getElementById('project-media-manifest').textContent);
+
+  /* Keep the manifest and each project card paired, then use a static image if video playback is unavailable. */
+  document.querySelectorAll('.project-card[data-project]').forEach(function(card){
+    var project = projectMedia[card.dataset.project];
+    if (project && project.destination) card.dataset.destination = project.destination;
+  });
+  document.querySelectorAll('.project-video').forEach(function(video){
+    video.addEventListener('error', function(){ video.closest('.project-media').classList.add('video-failed'); });
+    if (REDUCED) { video.pause(); video.removeAttribute('autoplay'); }
+    window.setTimeout(function(){
+      if (video.readyState < 2) video.closest('.project-media').classList.add('video-failed');
+    }, 1500);
+  });
 
   function readyAll(){
     var els = document.querySelectorAll('.rv');
