@@ -329,9 +329,8 @@ html.js .facts-card.in:hover{transform:translateY(-3px) scale(1.02);box-shadow:v
 .project-mav .project-media{aspect-ratio:16/11;}
 .project-wide .project-media{aspect-ratio:16/9;}
 .project-staged{grid-column:span 4;background:var(--bg-tint);}
-.project-staged-half{grid-column:span 6;}
-.project-staged .project-body{min-height:220px;justify-content:center;}
-.project-status{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
+.project-staged .project-media{aspect-ratio:4/3;}
+.project-staged .project-body{min-height:220px;}
 .project-staged h3{max-width:260px;}
 .project-staged p{max-width:290px;}
 .project-note{grid-column:span 12;padding:20px 24px;border-radius:var(--r-md);background:var(--bg-tint);border:1px solid var(--line);font-size:14px;color:var(--ink-2);}
@@ -448,7 +447,7 @@ footer{
   nav.open .nav-toggle span:nth-child(2){opacity:0;}
   nav.open .nav-toggle span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
   .project-grid{grid-template-columns:1fr;gap:16px;}
-  .project-featured,.project-mav,.project-wide,.project-half,.project-small,.project-staged,.project-staged-half,.project-note{grid-column:span 1;}
+  .project-featured,.project-mav,.project-wide,.project-half,.project-small,.project-staged,.project-note{grid-column:span 1;}
   .project-body{padding:20px;}
   .project-staged .project-body{min-height:0;}
   .stack-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
@@ -605,8 +604,8 @@ footer{
               <h3>Appiness Interactive · UI/UX Designer</h3>
               <p>Redesigned AgriApp for tens of thousands of active farmers, cutting task steps by 30%. Built Manipal Hospitals' community portal and admin dashboard. Design systems cut handoff back-and-forth by 40%.</p>
               <div class="tl-chips">
-                <a class="tl-chip" href="https://www.behance.net/gallery/177356281" target="_blank" rel="noopener">AgriApp case study</a>
-                <a class="tl-chip" href="https://www.behance.net/gallery/160547789" target="_blank" rel="noopener">Manipal portal</a>
+                <a class="tl-chip" href="https://www.behance.net/gallery/177356281/AgriApp-Agricultural-App-for-Farmers-%28Live-App%29" target="_blank" rel="noopener">AgriApp case study</a>
+                <a class="tl-chip" href="https://www.behance.net/gallery/160547789/Manipal-Community-Portal-UXUI" target="_blank" rel="noopener">Manipal portal</a>
               </div>
             </div>
           </div>
@@ -705,27 +704,43 @@ footer{
         </div>
       </article>
 
-      <article class="project-card project-staged project-staged-half rv" data-d="6" data-project="agriapp">
+      <article class="project-card project-staged rv" data-d="6" data-project="agriapp">
+        <div class="project-media">
+          <img src="Project files/agriapp.png" alt="AgriApp agricultural mobile app case study preview" loading="lazy" decoding="async">
+        </div>
         <div class="project-body">
-          <span class="project-status">Visual case study in progress</span>
           <div class="project-tags"><span class="project-tag">AgriTech</span><span class="project-tag">Mobile</span></div>
           <h3>AgriApp redesign</h3>
           <p>JTBD-led mobile redesign for tens of thousands of farmers. Key task steps down 30%.</p>
-          <a class="project-link" href="https://www.behance.net/gallery/177356281" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
+          <a class="project-link" href="https://www.behance.net/gallery/177356281/AgriApp-Agricultural-App-for-Farmers-%28Live-App%29" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
         </div>
       </article>
 
-      <article class="project-card project-staged project-staged-half rv" data-d="7" data-project="manipal">
+      <article class="project-card project-staged rv" data-d="7" data-project="manipal">
+        <div class="project-media">
+          <img src="Project files/manipal.png" alt="Manipal Hospitals community portal case study preview" loading="lazy" decoding="async">
+        </div>
         <div class="project-body">
-          <span class="project-status">Visual case study in progress</span>
           <div class="project-tags"><span class="project-tag">Healthcare</span></div>
           <h3>Manipal Hospitals portal</h3>
           <p>Community portal and admin dashboard for one of India's largest hospital networks.</p>
-          <a class="project-link" href="https://www.behance.net/gallery/160547789" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
+          <a class="project-link" href="https://www.behance.net/gallery/160547789/Manipal-Community-Portal-UXUI" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
         </div>
       </article>
 
-      <p class="project-note rv" data-d="7">Each project moves into the visual gallery as approved screenshots, prototypes, or recordings become available.</p>
+      <article class="project-card project-staged rv" data-d="8" data-project="memoneet">
+        <div class="project-media">
+          <img src="Project files/memoneet.png" alt="MemoNeet learning app redesign case study preview" loading="lazy" decoding="async">
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">EdTech</span><span class="project-tag">Mobile</span></div>
+          <h3>MemoNeet redesign</h3>
+          <p>Re-designed and revamped mobile learning experience for NEET aspirants, with clearer study flows and a more approachable product experience.</p>
+          <a class="project-link" href="https://www.behance.net/gallery/167496363/MemoNeet-Re-design-and-Re-vamp-(Live-app)" target="_blank" rel="noopener">View on Behance <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <p class="project-note rv" data-d="9">Selected visual case studies open on Behance in a new tab.</p>
     </div>
   </section>
 
@@ -794,8 +809,9 @@ footer{
   "autoreport":{"status":"ready","media":[{"type":"video","src":"Project files/autoreport-preview.m4v","poster":"Project files/autoreport-poster.png","alt":"AutoReport's privacy-first reporting app interface"}],"destination":"projects/autoreport.html"},
   "mav-turnki":{"status":"ready","media":[{"type":"video","src":"Project files/mav-preview.m4v","poster":"Project files/Screenshot 2026-08-12 at 1.06.29 PM.png","alt":"MAV Consulting property management CRM with AI agent integrations"}],"destination":"projects/mav-turnki.html"},
   "wecp-sherlock":{"status":"ready","media":[{"type":"video","src":"Project files/wecp-preview.m4v","poster":"Project files/wecp-poster.png","alt":"WeCP website section explaining AI interviewer pain points"}],"destination":"projects/wecp-sherlock.html"},
-  "agriapp":{"status":"awaiting-approved-media","media":[],"destination":"https://www.behance.net/gallery/177356281"},
-  "manipal":{"status":"awaiting-approved-media","media":[],"destination":"https://www.behance.net/gallery/160547789"}
+  "agriapp":{"status":"ready","media":[{"type":"image","src":"Project files/agriapp.png","alt":"AgriApp agricultural mobile app case study preview"}],"destination":"https://www.behance.net/gallery/177356281/AgriApp-Agricultural-App-for-Farmers-%28Live-App%29"},
+  "manipal":{"status":"ready","media":[{"type":"image","src":"Project files/manipal.png","alt":"Manipal Hospitals community portal case study preview"}],"destination":"https://www.behance.net/gallery/160547789/Manipal-Community-Portal-UXUI"},
+"memoneet":{"status":"ready","media":[{"type":"image","src":"Project files/memoneet.png","alt":"MemoNeet learning app redesign case study preview"}],"destination":"https://www.behance.net/gallery/167496363/MemoNeet-Re-design-and-Re-vamp-(Live-app)"}
 }
 </script>
 
