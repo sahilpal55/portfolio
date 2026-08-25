@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sahil Pal · Product Designer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#A9341F">
 <meta name="description" content="Product designer for AI and B2B SaaS. 4 years from discovery to shipped interface. Currently designing an AI-powered real estate CRM at MAV Consulting.">
 <meta property="og:title" content="Sahil Pal · Product, UI UX, Webflow Designer for AI B2B SaaS">
 <meta property="og:site_name" content="Sahil Pal · Product, UI UX, Webflow Designer for AI B2B SaaS">
@@ -311,6 +313,17 @@ html.js .facts-card.in:hover{transform:translateY(-3px) scale(1.02);box-shadow:v
 .project-video-fallback{display:none!important;position:absolute;inset:0;}
 .project-media.video-failed .project-video{display:none;}
 .project-media.video-failed .project-video-fallback{display:block!important;}
+.project-media-switcher .media-label{top:16px;bottom:auto;}
+.media-switcher-nav{
+  position:absolute;z-index:2;left:14px;right:14px;bottom:14px;
+  display:flex;gap:6px;padding:6px;border:1px solid rgba(26,26,26,.1);border-radius:12px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.media-switcher-nav button{
+  flex:1;min-width:0;min-height:44px;border:0;border-radius:8px;padding:7px 8px;background:transparent;
+  color:var(--ink-2);font:600 11px/1.2 var(--font);cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease);
+}
+.media-switcher-nav button[aria-pressed="true"]{background:var(--ink);color:#fff;}
 .media-label{
   position:absolute;left:16px;bottom:16px;padding:5px 10px;border-radius:999px;
   background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
@@ -324,15 +337,18 @@ html.js .facts-card.in:hover{transform:translateY(-3px) scale(1.02);box-shadow:v
 .project-link{margin-top:auto;padding-top:20px;font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
 .project-link .arr{transition:transform .3s var(--ease);}
 .project-card:hover .project-link .arr{transform:translateX(4px);}
-.project-featured{grid-column:span 7;}.project-mav{grid-column:span 5;}.project-wide{grid-column:span 12;}.project-half{grid-column:span 6;}.project-small{grid-column:span 4;}
+.project-featured{grid-column:span 7;}.project-mav{grid-column:span 5;}.project-wide{grid-column:span 7;}.project-half{grid-column:span 6;}.project-small{grid-column:span 4;}
 .project-featured .project-media{aspect-ratio:16/9;}
 .project-mav .project-media{aspect-ratio:16/11;}
 .project-wide .project-media{aspect-ratio:16/9;}
-.project-staged{grid-column:span 4;background:var(--bg-tint);}
-.project-staged .project-media{aspect-ratio:4/3;}
-.project-staged .project-body{min-height:220px;}
+.project-staged,.project-half{background:var(--bg-tint);}
+.project-staged{grid-column:span 5;}
+.project-staged .project-media,.project-half .project-media{aspect-ratio:4/3;}
+.project-staged .project-body,.project-half .project-body{min-height:220px;}
 .project-staged h3{max-width:260px;}
 .project-staged p{max-width:290px;}
+.project-half h3{max-width:360px;}
+.project-half p{max-width:440px;}
 .project-note{grid-column:span 12;padding:20px 24px;border-radius:var(--r-md);background:var(--bg-tint);border:1px solid var(--line);font-size:14px;color:var(--ink-2);}
 
 /* ============ stack ============ */
@@ -505,7 +521,7 @@ footer{
       <p class="hero-status rv" data-d="0"><span class="dot" aria-hidden="true"></span> Freelance at MAV Consulting · open to full-time</p>
       <h1 id="hero-h1">Hi, I'm <em class="serif">Sahil Pal</em></h1>
       <p class="positioning rv" data-d="6">Product designer for AI and B2B SaaS. Four years from discovery to shipped interface.</p>
-      <p class="context rv" data-d="8">Currently the sole designer on an AI-powered real estate CRM at MAV. Previously co-designed Sherlock, an AI interview platform launched on Product Hunt.</p>
+      <p class="context rv" data-d="8">Currently the sole designer on an AI-powered real estate CRM at MAV. Previously co-designed WeCP and Sherlock, an AI interview platform launched on Product Hunt.</p>
       <div class="hero-ctas rv" data-d="10">
         <a class="btn btn-primary" href="#projects">View work</a>
         <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
@@ -657,12 +673,17 @@ footer{
 
     <div class="project-grid">
       <article class="project-card project-featured rv" data-d="2" data-project="autoreport">
-        <div class="project-media">
-          <video class="project-video" muted loop autoplay playsinline preload="metadata" poster="Project files/autoreport-poster.png" aria-label="Preview of the AutoReport privacy-first reporting app">
-            <source src="Project files/autoreport-preview.m4v" type="video/mp4">
+        <div class="project-media project-media-switcher" data-active-media="0">
+          <video class="project-video" muted autoplay playsinline preload="metadata" poster="Project files/autoreport-landing-poster.jpg" aria-label="AutoReport public site and generated monthly report preview">
+            <source src="Project files/autoreport-landing-preview.m4v" type="video/mp4">
           </video>
-          <img class="project-video-fallback" src="Project files/autoreport-poster.png" alt="AutoReport's privacy-first reporting app interface" loading="lazy" decoding="async">
-          <span class="media-label">Product preview</span>
+          <img class="project-video-fallback" src="Project files/autoreport-landing-poster.jpg" alt="AutoReport public site showing a generated monthly report" loading="lazy" decoding="async">
+          <span class="media-label">AutoReport · Public site</span>
+          <div class="media-switcher-nav" role="group" aria-label="AutoReport preview clips">
+            <button type="button" aria-pressed="true" data-video="Project files/autoreport-landing-preview.m4v" data-poster="Project files/autoreport-landing-poster.jpg" data-label="AutoReport · Public site" data-alt="AutoReport public site and generated monthly report preview">Public site</button>
+            <button type="button" aria-pressed="false" data-video="Project files/autoreport-dashboard-preview.m4v" data-poster="Project files/autoreport-dashboard-poster.jpg" data-label="AutoReport · Product" data-alt="AutoReport product workspace, reports, and AI configuration preview">Product</button>
+            <button type="button" aria-pressed="false" data-video="Project files/autoreport-github-preview.m4v" data-poster="Project files/autoreport-github-poster.jpg" data-label="AutoReport · Open source" data-alt="AutoReport open-source repository and installation preview">Open source</button>
+          </div>
         </div>
         <div class="project-body">
           <div class="project-tags"><span class="project-tag">AI reporting</span><span class="project-tag">Privacy-first</span></div>
@@ -688,23 +709,7 @@ footer{
         </div>
       </article>
 
-      <article class="project-card project-wide rv" data-d="4" data-project="wecp-sherlock">
-        <div class="project-media">
-          <video class="project-video" muted loop autoplay playsinline preload="metadata" poster="Project files/wecp-poster.png" aria-label="Preview of the WeCP and Sherlock marketing work">
-            <source src="Project files/wecp-preview.m4v" type="video/mp4">
-          </video>
-          <img class="project-video-fallback" src="Project files/wecp-poster.png" alt="WeCP website section explaining AI interviewer pain points" loading="lazy" decoding="async">
-          <span class="media-label">Site preview</span>
-        </div>
-        <div class="project-body">
-          <div class="project-tags"><span class="project-tag">B2B SaaS</span><span class="project-tag">Webflow</span><span class="project-tag">AI hiring</span></div>
-          <h3>WeCP &amp; Sherlock · marketing design</h3>
-          <p>Sole designer across marketing and product for two years. Designed and built 40+ responsive Webflow pages spanning landing pages, product launches, blogs, resources, custom campaigns, and legacy redesigns on a modular system. Co-designed Sherlock's marketing experience through its Product Hunt launch. The redesign lifted session duration and lead conversion by 20-30%, while reusable components reduced build time by 40%.</p>
-          <a class="project-link" href="projects/wecp-sherlock.html">View case study <span class="arr">→</span></a>
-        </div>
-      </article>
-
-      <article class="project-card project-staged rv" data-d="6" data-project="agriapp">
+      <article class="project-card project-staged rv" data-d="4" data-project="agriapp">
         <div class="project-media">
           <img src="Project files/agriapp.png" alt="AgriApp agricultural mobile app case study preview" loading="lazy" decoding="async">
         </div>
@@ -716,7 +721,28 @@ footer{
         </div>
       </article>
 
-      <article class="project-card project-staged rv" data-d="7" data-project="manipal">
+      <article class="project-card project-wide rv" data-d="5" data-project="wecp-sherlock">
+        <div class="project-media project-media-switcher" data-active-media="0">
+          <video class="project-video" muted autoplay playsinline preload="metadata" poster="Project files/wecp-landing-pages-poster.jpg" aria-label="WeCP landing-page system and campaign storytelling preview">
+            <source src="Project files/wecp-landing-pages-preview.m4v" type="video/mp4">
+          </video>
+          <img class="project-video-fallback" src="Project files/wecp-landing-pages-poster.jpg" alt="WeCP landing page presenting alternatives to manual and automated interview screening" loading="lazy" decoding="async">
+          <span class="media-label">WeCP · Landing pages</span>
+          <div class="media-switcher-nav" role="group" aria-label="WeCP preview clips">
+            <button type="button" aria-pressed="true" data-video="Project files/wecp-landing-pages-preview.m4v" data-poster="Project files/wecp-landing-pages-poster.jpg" data-label="WeCP · Landing pages" data-alt="WeCP landing-page system and campaign storytelling preview">Landing pages</button>
+            <button type="button" aria-pressed="false" data-video="Project files/wecp-navigation-preview.m4v" data-poster="Project files/wecp-navigation-poster.jpg" data-label="WeCP · Navigation system" data-alt="WeCP product and solutions navigation system preview">Navigation</button>
+            <button type="button" aria-pressed="false" data-video="Project files/wecp-resources-preview.m4v" data-poster="Project files/wecp-resources-poster.jpg" data-label="WeCP · Blogs &amp; resources" data-alt="WeCP long-form blog and resource page system preview">Resources</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">B2B SaaS</span><span class="project-tag">Webflow</span><span class="project-tag">AI hiring</span></div>
+          <h3>WeCP &amp; Sherlock · marketing design</h3>
+          <p>Designed a modular marketing system across 40+ Webflow pages and co-designed Sherlock’s launch experience. The redesign improved engagement and made new pages faster to ship.</p>
+          <a class="project-link" href="projects/wecp-sherlock.html">View case study <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card project-half rv" data-d="7" data-project="manipal">
         <div class="project-media">
           <img src="Project files/manipal.png" alt="Manipal Hospitals community portal case study preview" loading="lazy" decoding="async">
         </div>
@@ -728,7 +754,7 @@ footer{
         </div>
       </article>
 
-      <article class="project-card project-staged rv" data-d="8" data-project="memoneet">
+      <article class="project-card project-half rv" data-d="8" data-project="memoneet">
         <div class="project-media">
           <img src="Project files/memoneet.png" alt="MemoNeet learning app redesign case study preview" loading="lazy" decoding="async">
         </div>
@@ -806,9 +832,9 @@ footer{
 
 <script type="application/json" id="project-media-manifest">
 {
-  "autoreport":{"status":"ready","media":[{"type":"video","src":"Project files/autoreport-preview.m4v","poster":"Project files/autoreport-poster.png","alt":"AutoReport's privacy-first reporting app interface"}],"destination":"projects/autoreport.html"},
+  "autoreport":{"status":"ready","media":[{"type":"video","src":"Project files/autoreport-landing-preview.m4v","poster":"Project files/autoreport-landing-poster.jpg","alt":"AutoReport public site and generated monthly report"},{"type":"video","src":"Project files/autoreport-dashboard-preview.m4v","poster":"Project files/autoreport-dashboard-poster.jpg","alt":"AutoReport product workspace and AI configuration"},{"type":"video","src":"Project files/autoreport-github-preview.m4v","poster":"Project files/autoreport-github-poster.jpg","alt":"AutoReport open-source repository and installation"}],"destination":"projects/autoreport.html"},
   "mav-turnki":{"status":"ready","media":[{"type":"video","src":"Project files/mav-preview.m4v","poster":"Project files/Screenshot 2026-08-12 at 1.06.29 PM.png","alt":"MAV Consulting property management CRM with AI agent integrations"}],"destination":"projects/mav-turnki.html"},
-  "wecp-sherlock":{"status":"ready","media":[{"type":"video","src":"Project files/wecp-preview.m4v","poster":"Project files/wecp-poster.png","alt":"WeCP website section explaining AI interviewer pain points"}],"destination":"projects/wecp-sherlock.html"},
+  "wecp-sherlock":{"status":"ready","media":[{"type":"video","src":"Project files/wecp-landing-pages-preview.m4v","poster":"Project files/wecp-landing-pages-poster.jpg","alt":"WeCP landing-page system and campaign storytelling"},{"type":"video","src":"Project files/wecp-navigation-preview.m4v","poster":"Project files/wecp-navigation-poster.jpg","alt":"WeCP product and solutions navigation system"},{"type":"video","src":"Project files/wecp-resources-preview.m4v","poster":"Project files/wecp-resources-poster.jpg","alt":"WeCP long-form blog and resource page system"}],"destination":"projects/wecp-sherlock.html"},
   "agriapp":{"status":"ready","media":[{"type":"image","src":"Project files/agriapp.png","alt":"AgriApp agricultural mobile app case study preview"}],"destination":"https://www.behance.net/gallery/177356281/AgriApp-Agricultural-App-for-Farmers-%28Live-App%29"},
   "manipal":{"status":"ready","media":[{"type":"image","src":"Project files/manipal.png","alt":"Manipal Hospitals community portal case study preview"}],"destination":"https://www.behance.net/gallery/160547789/Manipal-Community-Portal-UXUI"},
 "memoneet":{"status":"ready","media":[{"type":"image","src":"Project files/memoneet.png","alt":"MemoNeet learning app redesign case study preview"}],"destination":"https://www.behance.net/gallery/167496363/MemoNeet-Re-design-and-Re-vamp-(Live-app)"}
@@ -836,10 +862,38 @@ footer{
   });
   document.querySelectorAll('.project-video').forEach(function(video){
     video.addEventListener('error', function(){ video.closest('.project-media').classList.add('video-failed'); });
+    video.addEventListener('loadeddata', function(){ video.closest('.project-media').classList.remove('video-failed'); });
     if (REDUCED) { video.pause(); video.removeAttribute('autoplay'); }
     window.setTimeout(function(){
       if (video.readyState < 2) video.closest('.project-media').classList.add('video-failed');
-    }, 1500);
+    }, 4000);
+  });
+  document.querySelectorAll('.project-media-switcher').forEach(function(switcher){
+    var video = switcher.querySelector('.project-video');
+    var source = video.querySelector('source');
+    var fallback = switcher.querySelector('.project-video-fallback');
+    var label = switcher.querySelector('.media-label');
+    var tabs = Array.prototype.slice.call(switcher.querySelectorAll('[data-video]'));
+    function selectMedia(index){
+      var tab = tabs[index];
+      if (!tab) return;
+      switcher.dataset.activeMedia = index;
+      switcher.classList.remove('video-failed');
+      tabs.forEach(function(item,i){ item.setAttribute('aria-pressed',i === index ? 'true' : 'false'); });
+      video.pause();
+      source.src = tab.dataset.video;
+      video.poster = tab.dataset.poster;
+      video.setAttribute('aria-label',tab.dataset.alt);
+      fallback.src = tab.dataset.poster;
+      fallback.alt = tab.dataset.alt;
+      label.textContent = tab.dataset.label;
+      video.load();
+      if (!REDUCED) video.play().catch(function(){});
+    }
+    tabs.forEach(function(tab,index){ tab.addEventListener('click',function(){ selectMedia(index); }); });
+    video.addEventListener('ended',function(){
+      if (!REDUCED) selectMedia((Number(switcher.dataset.activeMedia) + 1) % tabs.length);
+    });
   });
 
   function readyAll(){
