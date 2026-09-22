@@ -1,0 +1,30 @@
+/* Forest & Oat: shared studio colour roles. */
+:root{
+ --studio-canvas:#F3F1E8;--studio-surface:#E6E9DE;--studio-ink:#202B25;
+ --studio-muted:#566057;--studio-brand:#245747;--studio-hover:#183E32;
+ --studio-soft:#DDE9DE;--studio-detail:#D9AA52;--studio-boundary:#758075;
+ --studio-line:#CAD1C4;--studio-on-brand:#FFFFFF;
+ --paper:var(--studio-canvas);--bg:var(--studio-canvas);--tint:var(--studio-surface);
+ --ink:var(--studio-ink);--ink2:var(--studio-muted);--ink3:var(--studio-muted);
+ --muted:var(--studio-muted);--rust:var(--studio-brand);--accent:var(--studio-brand);
+ --accent-strong:var(--studio-hover);--accent-soft:var(--studio-soft);
+ --line:var(--studio-line);--night:var(--studio-ink);
+}
+.current-shell{--bg:var(--studio-canvas);--bg-tint:var(--studio-surface);--ink:var(--studio-ink);--ink-2:var(--studio-muted);--ink-3:var(--studio-muted);--accent:var(--studio-brand);--accent-strong:var(--studio-hover);--accent-soft:var(--studio-soft);--accent-ink:var(--studio-hover);--line:var(--studio-line)}
+::selection{background:var(--studio-brand);color:var(--studio-on-brand)}
+.current-shell .btn-primary,.btn,.navcta{background:var(--studio-brand);color:var(--studio-on-brand)}
+.current-shell .btn-primary:hover,.btn:hover,.navcta:hover{background:var(--studio-hover)}
+.current-shell .btn-ghost{background:transparent;color:var(--studio-ink);border-color:var(--studio-boundary)}
+.current-shell .btn-ghost:hover{background:var(--studio-soft)}
+.clip-selector button{border-color:var(--studio-boundary);background:var(--studio-canvas);color:var(--studio-ink)}
+.clip-selector button[aria-pressed=true]{background:var(--studio-brand);border-color:var(--studio-brand);color:var(--studio-on-brand)}
+.folder-front{background:var(--studio-brand);border-color:var(--studio-hover);color:var(--studio-on-brand)}
+.folder-back,.folder-back:before{background:var(--studio-hover);border-color:var(--studio-hover)}
+.folder .note-options button[aria-pressed=true]{background:var(--studio-soft);color:var(--studio-ink);border-color:var(--studio-brand)}
+.current-shell .stack-card:hover{background:var(--studio-soft)}
+.approach,.section.dark{background:var(--studio-ink)}
+.approach .kicker,.dark .kicker{color:var(--studio-detail)}
+.approach :focus-visible,.dark :focus-visible{outline:3px solid var(--studio-detail);outline-offset:4px}
+.nav .brand:before{content:'';background:transparent url('favicon-forest-oat.svg') center/contain no-repeat;border-radius:6px;font-size:0;flex-shrink:0}
+/* Keep focus visible on dark media surrounds as well as paper surfaces. */
+.media-stage:not(.mav):not(.wecp) :focus-visible,.stage :focus-visible{outline:3px solid var(--studio-detail);outline-offset:4px}
